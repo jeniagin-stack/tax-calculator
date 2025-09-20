@@ -232,7 +232,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // חושף את הניווט הפנימי
     const nav = document.getElementById("internal-nav");
     nav.style.display = "block";
-    
+
     // 3️⃣ הצגת העוגה
     const values = [netSalary, incomeTax, health, social, pensionData.pension, pensionData.hishtalmut];
     const colors = ['#2ecc71','#e74c3c','#f1c40f','#3498db','#9b59b6','#f39c12'];
@@ -276,6 +276,7 @@ document.addEventListener("DOMContentLoaded", function() {
     setTimeout(() => {
       resultsSection.style.display = "none"; // מחכה 400ms ואז מסתיר לגמרי
     }, 400); // זמן ההתאמה ל-transition ב-CSS
+    employeeForm.scrollIntoView({ behavior: "smooth" });
   });
 
   // ============================
@@ -286,5 +287,5 @@ document.addEventListener("DOMContentLoaded", function() {
   setGender("male"); // ברירת מחדל מגדר
   updateCredits();
 
-  employeeForm.scrollIntoView({ behavior: "smooth" });
+  
 });
