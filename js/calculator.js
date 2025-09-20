@@ -228,6 +228,11 @@ document.addEventListener("DOMContentLoaded", function() {
     resultsSection.style.display = "flex"; // קודם מוודא שהאלמנט פעיל
     setTimeout(() => resultsSection.classList.add("show"), 10); // נותן דיליי קצר כדי שה-transition יפעל
     resultsSection.scrollIntoView({ behavior: "smooth" });
+
+        // חושף את הניווט הפנימי
+    const nav = document.getElementById("internal-nav");
+    nav.style.display = "block";
+    
     // 3️⃣ הצגת העוגה
     const values = [netSalary, incomeTax, health, social, pensionData.pension, pensionData.hishtalmut];
     const colors = ['#2ecc71','#e74c3c','#f1c40f','#3498db','#9b59b6','#f39c12'];
