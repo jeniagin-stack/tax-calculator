@@ -4,12 +4,14 @@
 /* גלובל — הוורפר שמרכז את התוכן */
 .form-wrapper {
   width: 100%;
+  max-width: 420px; /* מניעת גלישה במסכים קטנים */
+  margin: 0 auto;   /* מרכז אופקי */
   display: flex;
   flex-direction: column;
   justify-content: center; /* מרכז אופקי */
   align-items: center;
   padding: 12px;
-  /* אם תרצה למרכז גם אנכית במסך אפשר להוסיף: min-height: 100vh; align-items: center; */
+  /* אם תרצה למרכז גם אנכית במסך אפשר להוסיף: min-height: 100vh; */
 }
 
 /* השורה עם הבחירות */
@@ -17,13 +19,12 @@
   display: flex;
   gap: 20px;
   align-items: center;
-  justify-content: center; /* זה מה שמוודא שהפריטים במרכז השורה */
+  justify-content: center; /* מרכז השורה */
   flex-wrap: wrap;         /* ירדו שורה במסכים קטנים */
   max-width: 400px;        /* הגבלה לרוחב לשמירה על אסתטיקה */
   width: 100%;
   padding: 10px 10px;
   border-radius: 10px;
-  /* אופציונלי - מסגרת קלה כדי להראות בלוק בולט */
   background: #fff;
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
@@ -32,12 +33,10 @@
   display: block;
   width: 100%;
   text-align: center !important;  /* מרכז */
-  font-size: 15px;
-  font-weight: 400;
-  color: #333;
-  margin: 0 0 0 0;
   font-size: 1.2rem;
   font-weight: 600; 
+  color: #333;
+  margin: 0;
 }
 
 /* Year + gender internal layout */
@@ -47,7 +46,7 @@
   gap: 8px;
 }
 
-/* תוויות - השתמש ב-margin-inline-start כדי להיות ידידותי ל-RTL */
+/* תוויות - שימוש ב-margin-inline-start ל-RTL */
 .year-select label, .gender-group .gender-option {
   font-weight: 600;
   margin-inline-start: 6px;
@@ -60,13 +59,13 @@
   border-radius: 8px;
   background: #f8fafc;
   min-width: 140px;
+  max-width: 100%;
 }
 
 .gender-buttons {
   display: flex;
   gap: 10px;
   justify-content: center;
-  
 }
 
 .gender-buttons button {
@@ -96,11 +95,10 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  margin-bottom: 12px;
-  margin-top: 10px;
+  margin: 10px 0 12px 0;
   background: #fff;
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  max-width: 400px;        /* הגבלה לרוחב לשמירה על אסתטיקה */
+  max-width: 400px;
   width: 100%;
   padding: 10px 10px;
   border-radius: 10px;
@@ -128,14 +126,13 @@
   text-align: center;
 }
 
-
-
 .inputs {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 15px;
   margin: 10px 0;
+  width: 100%;
 }
 
 .inputs label {
@@ -153,6 +150,7 @@
   border-radius: 6px;
   border: 1px solid #ccc;
   text-align: center;
+  max-width: 100%; /* מונע גלישה אופקית */
 }
 
 .error-message {
@@ -189,8 +187,6 @@
   box-shadow: 0 6px 8px rgba(0,0,0,0.15);
 }
 
-
-
 #clear {
   background-color: #e74c3c;
   color: #fff;
@@ -207,6 +203,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+    gap: 10px; /* מצמצם רווח למסכים קטנים */
   }
 }
 
@@ -217,11 +214,11 @@
   padding: 15px;
   margin: 10px auto;
   max-width: 800px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  width: 100%; /* גמיש למובייל */
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 400px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
 
 /* עוטף את הסוויץ והאינפוט */
@@ -230,7 +227,7 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
-  flex-wrap: wrap; /* במובייל מאפשר ירידה שורה */
+  flex-wrap: wrap;
 }
 
 /* toggle switch */
@@ -283,16 +280,15 @@ input:checked + .slider:before {
   margin-top: 8px;
   font-weight: 600;
   font-size: 1rem;
-  font-weight: 600;
   text-align: center;
 }
 
 /* אינפוט של קרן השתלמות */
 #hishtalmutInputWrapper {
-  display: none; /* מוסתר בהתחלה */
+  display: none;
 }
 
-#hishtalmutInputWrappe label{
+#hishtalmutInputWrapper label {
   font-weight: 500;
 }
 
@@ -306,21 +302,11 @@ input:checked + .slider:before {
   font-weight: 500;
 }
 
-.hishtalmut-section label{
-  font-weight: 600;   /* הופך את הפונט לעבה יותר */
-  font-size: 1rem; /* מגדיל טיפה */
-}
-
 /* התאמה למובייל */
 @media (max-width: 480px) {
   .hishtalmut-wrapper, #hishtalmutInputWrapper {
     flex-direction: column;
     align-items: center;
     margin-top: 10px;
-  }
-  #legend, #pieChart {
-    width: 100%;
-    max-width: 300px;
-    margin: 10px auto;
   }
 }
