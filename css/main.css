@@ -14,12 +14,16 @@ body {
   background-color: #f9f9f9;
   color: #333;
   line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  font-family: 'Heebo', sans-serif;
 }
 
 .container {
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 /* כותרות */
@@ -33,7 +37,7 @@ h1 {
   letter-spacing: 1px;
 }
 
-h2{
+h2 {
   text-align: center;
   margin: 15px 0;
   font-size: 1.5rem;
@@ -49,16 +53,16 @@ h3, h4, h5, h6 {
 
 p {
   text-align: center;
-  font-size: 1.2rem;           /* גודל טקסט קריא */
-  color: #555;                 /* צבע טקסט עדין */
-  line-height: 1.6;            /* גובה שורה לקריאות */
-  max-width: 600px;            /* רוחב מקסימלי לקריאה נוחה */
-  margin: 0 auto;              /* מרכז את הפסקה */
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 /* ניווט פנימי */
 .internal-nav {
-  display: none; /* מוסתר כברירת מחדל */
+  display: none;
   text-align: center;
   margin-bottom: 20px;
   font-weight: 600;
@@ -104,9 +108,11 @@ p {
 
 /* תצוגת התוצאות והגרף */
 #results-section {
-  display: none; /* מסתיר את המיכל בהתחלה */
+  display: none;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
+  flex-direction: column; /* מרכז הכל במובייל */
+  align-items: center;
 }
 
 #results-section.show {
@@ -122,6 +128,11 @@ p {
   gap: 20px;
   flex-wrap: wrap;
   margin-top: 20px;
+}
+
+.results-wrapper,
+.chart-wrapper {
+  max-width: 100%; /* מונע “דליפה” מה-container */
 }
 
 .results-wrapper {
@@ -185,8 +196,8 @@ p {
 #tax-info {
   margin: 30px auto;
   padding: 20px;
-  max-width: 700px;          /* רוחב מקסימלי לטבלה */
-  background-color: #f9f9f9; /* רקע עדין */
+  max-width: 700px;
+  background-color: #f9f9f9;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   font-family: Arial, sans-serif;
@@ -208,7 +219,7 @@ p {
 #tax-info table {
   width: 100%;
   border-collapse: collapse;
-  margin: 0 auto 20px auto;  /* מרכז את הטבלה */
+  margin: 0 auto 20px auto;
   font-size: 1rem;
   text-align: center;
 }
@@ -239,33 +250,32 @@ p {
 }
 
 .tip-icon {
-  width: 20px;         /* גודל האייקון */
+  width: 20px;
   height: 20px;
-  vertical-align: middle;  /* מיישר עם הטקסט */
-  margin-right: 8px;   /* רווח בין האייקון לטקסט */
+  vertical-align: middle;
+  margin-right: 8px;
 }
 
 #tax-info ul {
-  list-style: none;       /* מבטל את הסימון הרגיל */
+  list-style: none;
   padding-left: 0;
 }
 
 #tax-info ul li {
-  position: relative;     /* מאפשר מיקום האייקון */
-  padding-left: 30px;     /* מרחק מהאייקון לטקסט */
+  position: relative;
+  padding-left: 30px;
   margin-bottom: 10px;
 }
 
-/* הוספת האייקון בתחילת כל שורה */
 #tax-info ul li::before {
   content: "";
   position: absolute;
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  width: 20px;             /* רוחב האייקון */
-  height: 20px;            /* גובה האייקון */
-  background-image: url('icon.png');  /* הנתיב לאייקון שלך */
+  width: 20px;
+  height: 20px;
+  background-image: url('icon.png');
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -274,7 +284,7 @@ p {
   cursor: pointer;
   transition: transform 0.2s;
   margin-left: 10px;
-  margin-right: 10PX;
+  margin-right: 10px;
 }
 
 #share-buttons img:hover {
@@ -289,7 +299,9 @@ footer {
   text-align: center;
   margin-top: 40px;
   font-family: Arial, sans-serif;
-  width: 600px;
+  width: 100%;      /* עכשיו יתפוס את רוחב המסך */
+  max-width: 600px; /* ולא יהיה יותר מדי רחב במחשב */
+  margin: 0 auto;   /* מרכז את הפוטר */
 }
 
 /* ====== כיתוב קריאה לפעולה ====== */
@@ -316,12 +328,12 @@ footer a:hover {
   margin-bottom: 15px;
   display: flex;
   justify-content: center;
-  gap: 15px; /* רווח בין הכפתורים */
-  flex-wrap: wrap; /* מאפשר שורה נוספת במסכים קטנים */
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
 #share-buttons a img {
-  width: 40px; /* גודל גדול יותר לקריאה במובייל */
+  width: 40px;
   vertical-align: middle;
   transition: transform 0.2s;
 }
@@ -332,7 +344,7 @@ footer a:hover {
 
 /* ====== כתובת מייל ====== */
 footer p a {
-  word-break: break-word; /* אם המייל ארוך מדי */
+  word-break: break-word;
 }
 
 /* ====== זכויות יוצרים ====== */
@@ -341,14 +353,13 @@ footer .copyright {
   margin-top: 10px;
 }
 
-
-
 /* ריספונסיביות */
 @media screen and (max-width: 768px) {
   .results-container {
     flex-direction: column;
     align-items: center;
     gap: 15px;
+    width: 100%;
   }
 
   .chart-wrapper, .results-wrapper {
@@ -365,10 +376,9 @@ footer .copyright {
   }
 }
 
-/* ====== מדיה קווריס למסכים קטנים ====== */
 @media (max-width: 480px) {
   #share-buttons a img {
-    width: 35px; /* קצת יותר קטן למסכים קטנים */
+    width: 35px;
   }
 
   footer .share-text {
