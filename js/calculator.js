@@ -227,9 +227,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // ✅ חשיפת הפסקאות
     const resultsSection = document.getElementById("results-section");
-    resultsSection.style.display = "flex"; // קודם מוודא שהאלמנט פעיל
-    setTimeout(() => resultsSection.classList.add("show"), 10); // נותן דיליי קצר כדי שה-transition יפעל
-    resultsSection.scrollIntoView({ behavior: "smooth" });
+    resultsSection.style.display = "flex"; // קודם הופך את האלמנט ל-flex
+    setTimeout(() => {
+    resultsSection.classList.add("show");  // מפעיל transition
+    resultsSection.scrollIntoView({ behavior: "smooth" }); // עכשיו הגלילה חלקה
+    }, 100); // 100ms מספיק זמן ל-render; אפשר לשנות לפי זמן ה-transition שלך ב-CSS
 
         // חושף את הניווט הפנימי
     const nav = document.getElementById("internal-nav");
@@ -291,4 +293,3 @@ document.addEventListener("DOMContentLoaded", function() {
 
   
 });
-
