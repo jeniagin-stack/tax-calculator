@@ -1,0 +1,358 @@
+/* בסיסי לכל האתר */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* כותרות */
+h1 {
+  text-align: center;
+  margin: 15px 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #3498db;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+  letter-spacing: 1px;
+}
+
+h2{
+  text-align: center;
+  margin: 15px 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #3498db;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+  letter-spacing: 1px;
+}
+
+h3, h4, h5, h6 {
+  text-align: center;
+}
+
+p {
+  text-align: center;
+  font-size: 1.2rem;           /* גודל טקסט קריא */
+  color: #555;                 /* צבע טקסט עדין */
+  line-height: 1.6;            /* גובה שורה לקריאות */
+  max-width: 600px;            /* רוחב מקסימלי לקריאה נוחה */
+  margin: 0 auto;              /* מרכז את הפסקה */
+}
+
+/* כפתורי Tabs */
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tabs button {
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  background-color: #ddd;
+  transition: background-color 0.2s;
+}
+
+.tabs button.active {
+  background-color: #3498db;
+  color: white;
+}
+
+/* תצוגת התוצאות והגרף */
+#results-section {
+  display: none; /* מסתיר את המיכל בהתחלה */
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+#results-section.show {
+  display: flex;
+  opacity: 1;
+}
+
+/* סידור התוצאות והגרף */
+.results-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.results-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-width: 250px;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.results p {
+  margin-bottom: 12px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+#main-bracket {
+  color: #e74c3c;
+}
+
+.chart-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 250px;
+  max-width: 300px;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.chart-wrapper canvas {
+  max-width: 100%;
+}
+
+.legend {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.legend div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.95rem;
+}
+
+.color-box {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+}
+
+#tax-info {
+  margin: 30px auto;
+  padding: 20px;
+  max-width: 700px;          /* רוחב מקסימלי לטבלה */
+  background-color: #f9f9f9; /* רקע עדין */
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  font-family: Arial, sans-serif;
+}
+
+#tax-info h2, #tax-info h3 {
+  color: #3498db;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+#tax-info p {
+  text-align: center;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 5px;
+}
+
+#tax-info table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto 20px auto;  /* מרכז את הטבלה */
+  font-size: 1rem;
+  text-align: center;
+}
+
+#tax-info th, #tax-info td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+#tax-info th {
+  background-color: #3498db;
+  color: #fff;
+  font-weight: 700;
+}
+
+#tax-info tr:nth-child(even) {
+  background-color: #f1f1f1;
+}
+
+#tax-info tr:hover {
+  background-color: #e0f0ff;
+}
+
+#tax-info ul {
+  color: #555;
+  line-height: 1.6;
+  padding-left: 20px;
+}
+
+.tip-icon {
+  width: 20px;         /* גודל האייקון */
+  height: 20px;
+  vertical-align: middle;  /* מיישר עם הטקסט */
+  margin-right: 8px;   /* רווח בין האייקון לטקסט */
+}
+
+#tax-info ul {
+  list-style: none;       /* מבטל את הסימון הרגיל */
+  padding-left: 0;
+}
+
+#tax-info ul li {
+  position: relative;     /* מאפשר מיקום האייקון */
+  padding-left: 30px;     /* מרחק מהאייקון לטקסט */
+  margin-bottom: 10px;
+}
+
+/* הוספת האייקון בתחילת כל שורה */
+#tax-info ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;             /* רוחב האייקון */
+  height: 20px;            /* גובה האייקון */
+  background-image: url('icon.png');  /* הנתיב לאייקון שלך */
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#share-buttons img {
+  cursor: pointer;
+  transition: transform 0.2s;
+  margin-left: 10px;
+  margin-right: 10PX;
+}
+
+#share-buttons img:hover {
+  transform: scale(1.2);
+}
+
+/* ====== פוטר ====== */
+footer {
+  background-color: #3498db;
+  color: #fff;
+  padding: 20px 10px;
+  text-align: center;
+  margin-top: 40px;
+  font-family: Arial, sans-serif;
+  width: 600px;
+}
+
+/* ====== כיתוב קריאה לפעולה ====== */
+footer .share-text {
+  font-weight: 700;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+/* ====== קישורים בפוטר ====== */
+footer a {
+  color: #fff;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+footer a:hover {
+  color: #e0f7ff;
+  text-decoration: none;
+}
+
+/* ====== כפתורי שיתוף ====== */
+#share-buttons {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 15px; /* רווח בין הכפתורים */
+  flex-wrap: wrap; /* מאפשר שורה נוספת במסכים קטנים */
+}
+
+#share-buttons a img {
+  width: 40px; /* גודל גדול יותר לקריאה במובייל */
+  vertical-align: middle;
+  transition: transform 0.2s;
+}
+
+#share-buttons a img:hover {
+  transform: scale(1.1);
+}
+
+/* ====== כתובת מייל ====== */
+footer p a {
+  word-break: break-word; /* אם המייל ארוך מדי */
+}
+
+/* ====== זכויות יוצרים ====== */
+footer .copyright {
+  font-size: 0.8rem;
+  margin-top: 10px;
+}
+
+
+
+/* ריספונסיביות */
+@media screen and (max-width: 768px) {
+  .results-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .chart-wrapper, .results-wrapper {
+    width: 90%;
+    text-align: center;
+  }
+
+  .results p {
+    font-size: 1rem;
+  }
+
+  .legend div {
+    justify-content: center;
+  }
+}
+
+/* ====== מדיה קווריס למסכים קטנים ====== */
+@media (max-width: 480px) {
+  #share-buttons a img {
+    width: 35px; /* קצת יותר קטן למסכים קטנים */
+  }
+
+  footer .share-text {
+    font-size: 1rem;
+  }
+
+  footer {
+    padding: 15px 10px;
+  }
+}
