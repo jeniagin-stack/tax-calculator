@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
+  // וודא שהגלילה מתחילה מהחלק העליון
+  window.scrollTo(0, 0)
   // ============================
   // 1️⃣ אלמנטים מה-DOM
   // ============================
@@ -289,3 +291,4 @@ document.addEventListener("DOMContentLoaded", function() {
 
   
 });
+
