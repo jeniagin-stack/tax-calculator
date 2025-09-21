@@ -1,6 +1,6 @@
 // ====== הגדרות שיתוף ======
 const shareText = "גלה כמה באמת מגיע לך בנטו – מחשבון מס הכנסה מהיר ופשוט!";
-const shareURL = "https://jeniagin-stack.github.io/tax-calculator/";
+const shareURL = "https://netocalc.co.il/";
 
 // זיהוי מובייל
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
