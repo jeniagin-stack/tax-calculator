@@ -246,7 +246,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // ✅ מעקב GA4 – כאן נכניס את האירוע
     gtag('event', 'calculate_click', {
       'event_category': 'Calculator',
-      'event_label': 'מס הכנסה'
+      'event_label': 'Net calculator used'
     });
   });
 
@@ -296,6 +296,9 @@ document.addEventListener("DOMContentLoaded", function() {
   infantCountEl.textContent = infants;
   setGender("male"); // ברירת מחדל מגדר
   updateCredits();
-
+  gtag('event', 'clear_click', {
+    'event_category': 'clear',
+    'event_label': 'clear button used'
+  });  
   
 });
