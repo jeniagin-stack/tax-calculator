@@ -242,6 +242,12 @@ document.addEventListener("DOMContentLoaded", function() {
     const colors = ['#2ecc71','#e74c3c','#f1c40f','#3498db','#9b59b6','#f39c12'];
     drawPieChartAnimated(ctx, values, colors, legend);
     showTaxInfo();
+
+    // ✅ מעקב GA4 – כאן נכניס את האירוע
+    gtag('event', 'calculate_click', {
+      'event_category': 'Calculator',
+      'event_label': 'מס הכנסה'
+    });
   });
 
   // כפתור נקה
