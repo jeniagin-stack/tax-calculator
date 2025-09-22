@@ -233,6 +233,16 @@ document.addEventListener("DOMContentLoaded", function() {
     resultsSection.scrollIntoView({ behavior: "smooth" }); // עכשיו הגלילה חלקה
     }, 100); // 100ms מספיק זמן ל-render; אפשר לשנות לפי זמן ה-transition שלך ב-CSS
 
+    // ✅ חשיפת הסקשנים של מדרגות מס, נקודות זיכוי וטיפים
+    const taxInfoSection = document.getElementById("tax-info");
+    const taxCreditsSection = document.getElementById("tax-credits");
+    const taxTipsSection = document.getElementById("tax-tips");
+
+    // מציג את כל הסקשנים
+    taxInfoSection.style.display = "block";
+    taxCreditsSection.style.display = "block";
+    taxTipsSection.style.display = "block";
+
         // חושף את הניווט הפנימי
     const nav = document.getElementById("internal-nav");
     nav.style.display = "block";
