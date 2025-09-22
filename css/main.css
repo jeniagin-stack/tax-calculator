@@ -359,44 +359,34 @@ p {
 }
 
 /* ===============================
-   רספונסיביות למובייל
+   רספונסיביות למובייל – תיקון הטבלאות
 =============================== */
 @media (max-width: 480px) {
-  #tax-info table, #tax-info thead, #tax-info tbody, #tax-info th, #tax-info td, #tax-info tr,
-  #tax-credits table, #tax-credits thead, #tax-credits tbody, #tax-credits th, #tax-credits td, #tax-credits tr,
-  #tax-tips table, #tax-tips thead, #tax-tips tbody, #tax-tips th, #tax-tips td, #tax-tips tr {
+  #tax-info table,
+  #tax-credits table,
+  #tax-tips table {
     display: block;
-    width: 100%;
+    overflow-x: auto;   /* מוסיף גלילה אופקית */
+    white-space: nowrap; /* שומר על כל התאים בשורה */
   }
 
-  #tax-info tr, #tax-credits tr, #tax-tips tr {
-    margin-bottom: 15px;
-    border-bottom: 2px solid #ddd;
+  #tax-info th, #tax-info td,
+  #tax-credits th, #tax-credits td,
+  #tax-tips th, #tax-tips td {
+    display: table-cell; /* שומר על מבנה הטבלה */
+    padding: 8px;
+    font-size: 0.9rem;
+    text-align: center;
   }
 
-  #tax-info td, #tax-credits td, #tax-tips td {
-    text-align: right;
-    padding-left: 50%;
-    position: relative;
-  }
-
-  #tax-info td::before, #tax-credits td::before, #tax-tips td::before {
-    content: attr(data-label);
-    position: absolute;
-    left: 15px;
-    width: calc(50% - 20px);
-    text-align: left;
-    font-weight: 700;
-    color: #2c3e50;
-  }
-
-  #tax-info th, #tax-credits th, #tax-tips th {
-    display: none;
+  #tax-info tr,
+  #tax-credits tr,
+  #tax-tips tr {
+    display: table-row;
   }
 }
 
-
-
+/* שאר הקוד נשאר כפי שהיה */
 #share-buttons img {
   cursor: pointer;
   transition: transform 0.2s;
