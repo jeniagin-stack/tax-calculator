@@ -1,391 +1,250 @@
-/* בסיסי לכל האתר */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-}
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>מחשבון מס הכנסה בישראל 2025 – חישוב שכר נטו, פנסיה וביטוחים</title>
+  <!-- פאביקון לכל הדפדפנים -->
+  <link rel="icon" type="image/png" href="images/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="images/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="images/favicon/favicon.ico" />
 
-html {
-  scroll-behavior: smooth;
-}
+  <!-- אייקון למכשירי אפל -->
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png" />
 
-body {
-  background-color: #f9f9f9;
-  color: #333;
-  line-height: 1.5;
-  margin: 0;
-  padding: 0;
-  font-family: 'Heebo', sans-serif;
-}
+  <!-- קובץ manifest למכשירים ופלטפורמות שונות -->
+  <link rel="manifest" href="images/favicon/site.webmanifest" />
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  box-sizing: border-box;
-}
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-71E0PXH3CE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-71E0PXH3CE');
+  </script>
+  <meta name="description" content="חשב את השכר נטו בקלות עם מחשבון מס הכנסה 2025. כולל חישוב פנסיה, ביטוח לאומי, מס בריאות וקרן השתלמות – תוצאות מהירות וברורות לכל שכיר.">
+  <meta name="keywords" content="מחשבון מס הכנסה, מס הכנסה, שכר נטו, פנסיה, ביטוח לאומי, מס בריאות, קרן השתלמות, חישוב מס 2025">
+  <meta name="robots" content="index, follow">
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/employee.css">
+</head>
+<body>
+  <section id="intro">
+  <div class="container">
+    <h1>מחשבון נטו-חשב מס הכנסה לשכירים</h1>
+    <h2>חשב את הנטו  בקליק!</h2>
 
-/* כותרות */
-h1 {
-  text-align: center;
-  margin: 15px 0;
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #3498db;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
-  letter-spacing: 1px;
-}
+    <!-- ניווט פנימי מוסתר כברירת מחדל -->
+    <nav id="internal-nav" class="internal-nav">
+      <a href="#employeeForm"> למחשבון</a> |
+      <a href="#tax-info">מדרגות מס </a> | 
+      <a href="#tax-credits">נקודות זיכוי</a> | 
+      <a href="#tax-tips">טיפים חשובים</a>
+    </nav>
+  </section>
+    
+      
+    <p>השתמש במחשבון מס הכנסה זה כדי לחשב את השכר נטו שלך כעובד שכיר בישראל בשנת 2025. התוצאות כוללות חישוב מס הכנסה, ביטוח לאומי, מס בריאות וקרנות פנסיה.</p>
+    
+    <div id="employeeForm">
+    <!-- כאן כל השדות הקיימים של השכיר -->
+      <div class="form-wrapper">
 
-h2 {
-  text-align: center;
-  margin: 15px 0;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #3498db;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
-  letter-spacing: 1px;
-}
+      <!-- השורה עם הבחירות -->
+      <div class="controls-row">
+      <!-- טקסט ההסבר מעל -->
+        <div style="text-align:center; width:100%;">
+        ` <p class="form-hint">אנא בחר את שנת המס והמגדר:</p>
+        </div>
+        <div class="year-select">
+          <label for="taxYear">שנת מס:</label>
+          <select id="taxYear">
+            <option value="2025" selected>2025</option>
+            <option value="2024">2024</option>
+            <option value="2023">2023</option>
+            <option value="2024">2022</option>
+            <option value="2023">2021</option>
+            <option value="2023">2020</option>
+          </select>
+      </div>
 
-h3, h4, h5, h6 {
-  text-align: center;
-}
+      <div class="gender-buttons">
+        <button type="button" id="maleBtn" class="active">גבר</button>
+        <button type="button" id="femaleBtn">אישה</button>
+      </div>
+    </div>
+    </section>
+    <div class="option-box">
+      <div class="hishtalmut-section">
+        <label class="switch">
+          <input type="checkbox" id="hishtalmutCheckbox">
+          <span class="slider"></span>
+        </label>
+        <span class="label-text">קרן השתלמות</span>
 
-p {
-  text-align: center;
-  font-size: 1.2rem;
-  color: #555;
-  line-height: 1.6;
-  max-width: 600px;
-  margin: 0 auto;
-}
+        <div id="hishtalmutInputWrapper" style="display:none; margin-top:10px;">
+          <label for="hishtalmutRate">אחוז הפרשה (%):</label>
+          <input type="number" id="hishtalmutRate" value="2.5" step="0.1" min="0" max="10">
+        </div>
+      </div>
+    </div>
 
-/* ניווט פנימי */
-.internal-nav {
-  display: none;
-  text-align: center;
-  margin-bottom: 20px;
-  font-weight: 600;
-  font-size: 16px;
-  background-color: #f5f5f5;
-  padding: 10px 0;
-  border-radius: 8px;
-}
+    <div class="children-picker">
+      <p>כמה ילדים מתחת לגיל שנה:</p>
+      <button type="button" id="minusInfant">-</button>
+      <span id="infantCount">0</span>
+      <button type="button" id="plusInfant">+</button>
+    </div>
 
-.internal-nav a {
-  margin: 0 15px;
-  color: #2c3e50;
-  text-decoration: none;
-  transition: color 0.3s;
-}
+    <div class="children-picker">
+      <p>כמה ילדים בין גיל 1–17:</p>
+      <button type="button" id="minusChild">-</button>
+      <span id="childrenCount">0</span>
+      <button type="button" id="plusChild">+</button>
+    </div>
+    
 
-.internal-nav a:hover {
-  color: #e74c3c;
-}
+      <div class="inputs">
+        <label>שכר ברוטו:
+          <input type="number" id="salary" placeholder="הכנס סכום">
+          <div id="salaryError" class="error-message"></div>
+        </label>
+        <label>נקודות זיכוי:
+          <input type="number" id="credits" placeholder="2.25" >
+          <div id="creditsError" class="error-message"></div>
+        </label>
+      </div>
 
-/* כפתורי Tabs */
-.tabs {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 20px;
-}
+      <div class="buttons">
+        <button id="calculate">חשב נטו</button>
+        <button id="clear">נקה</button>
+      </div>
 
-.tabs button {
-  padding: 10px 20px;
-  font-size: 1.1rem;
-  cursor: pointer;
-  border: none;
-  border-radius: 8px;
-  background-color: #ddd;
-  transition: background-color 0.2s;
-}
+      <div id="results-section" class="results-container">
+        <div class="results">
+          <p>תוצאות: </p>
+          <p id="net">נטו: </p>
+          <p id="tax">מס הכנסה מצטבר: </p>
+          <p id="health">מס בריאות: </p>
+          <p id="social">מס ביטוח לאומי: </p>
+          <p id="pension">פנסיה חובה: </p>
+          <p id="hishtalmut">קרן השתלמות: </p>
+          <p id="main-bracket">מדרגת מס: </p>
+        </div>
 
-.tabs button.active {
-  background-color: #3498db;
-  color: white;
-}
+        <div class="chart-wrapper">
+          <canvas id="pieChart" width="200" height="200"></canvas>
+          <div class="legend" id="legend"></div>
+        </div>
+      </div>
+  <div>
 
-/* תצוגת התוצאות והגרף */
-#results-section {
-  display: none;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-  flex-direction: column; /* מרכז הכל במובייל */
-  align-items: center;
-}
+<!-- ============================
+     מדרגות מס הכנסה 2025
+============================ -->
+<section id="tax-info" style="display:none;">
+  <h2>מדרגות מס הכנסה בישראל 2025</h2>
+  <p>מס הכנסה מחושב לפי מדרגות הכנסה.</p>
+  <p> ככל שההכנסה גבוהה יותר, המס גבוה יותר.</p>
 
-#results-section.show {
-  display: flex;
-  opacity: 1;
-}
+  <table>
+    <thead>
+      <tr>
+        <th>טווח הכנסה</th>
+        <th>שיעור מס</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>עד 7,010 ₪</td><td>10%</td></tr>
+      <tr><td>7,011 – 10,060 ₪</td><td>14%</td></tr>
+      <tr><td>10,061 – 16,150 ₪</td><td>20%</td></tr>
+      <tr><td>16,151 – 22,440 ₪</td><td>31%</td></tr>
+      <tr><td>22,441 – 46,690 ₪</td><td>35%</td></tr>
+      <tr><td>46,691 – 60,130 ₪</td><td>47%</td></tr>
+      <tr><td>60,131 ₪ ומעלה</td><td>50%</td></tr>
+    </tbody>
+  </table>
+</section>
 
-/* סידור התוצאות והגרף */
-.results-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-top: 20px;
-}
+<!-- ============================
+     נקודות זיכוי 2025
+============================ -->
+<section id="tax-credits" style="display: none;" class="tax-credits-section" >
+  <h2>נקודות זיכוי למס הכנסה – 2025</h2>
+  <p>נקודות זיכויי מפחיתות את מס הכנסה שתשלם.</p>
+  <p>  כל נקודה מזכה בסכום של <strong>242 ₪ לחודש</strong> (2,904 ₪ בשנה).</p>
+  <table>
+    <thead>
+      <tr>
+        <th>קריטריון זכאות</th>
+        <th>מספר נקודות</th>
+        <th>ערך לחודש (₪)</th>
+        <th>ערך לשנה (₪)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>ילד עד גיל שנה</td><td>1</td><td>242</td><td>2,904</td></tr>
+      <tr><td>ילד בן 1–2</td><td>2</td><td>484</td><td>5,808</td></tr>
+      <tr><td>ילד בן 3–17</td><td>1</td><td>242</td><td>2,904</td></tr>
+      <tr><td>בן זוג/אישה</td><td>1</td><td>242</td><td>2,904</td></tr>
+      <tr><td>סטודנט/ית</td><td>1</td><td>242</td><td>2,904</td></tr>
+      <tr><td>נכה (100%)</td><td>2</td><td>484</td><td>5,808</td></tr>
+      <tr><td>הורים לילדים עם נכות</td><td>2</td><td>484</td><td>5,808</td></tr>
+      <tr><td>חייל/ת משוחרר/ת</td><td>2</td><td>484</td><td>5,808</td></tr>
+    </tbody>
+  </table>
+</section>
 
-.results-wrapper,
-.chart-wrapper {
-  max-width: 100%; /* מונע “דליפה” מה-container */
-}
+<!-- ============================
+     טיפים נוספים להורדת מס
+============================ -->
+<section id="tax-tips" style="display: none;">
+  <h3>💡טיפים להורדת מס💡</h3>
+  <ul>
+    <li>
+      <img src="images/idea-icon.png" alt="טיפ מס הכנסה" class="tip-icon">
+      וודא שטופס 101 שאתה מגיש למעסיק מלא עם כל הפרטים האישיים והמשפחתיים – כך כל נקודות הזיכוי שאתה זכאי להן יתקבלו .
+    </li>
+    <li><img src="images/idea-icon.png" alt="טיפ מס הכנסה" class="tip-icon"> הפקדות לקרנות פנסיה והשתלמות מפחיתות את ההכנסה החייבת במס.</li>
+  </ul>
+  <p style="text-align:center; margin-top:20px;">
+    למידע נוסף, בקרו באתר 
+    <a href="https://www.gov.il/he/departments/topics/income_tax_israel_tax_authority/govil-landing-page" target="_blank" rel="noopener noreferrer">רשות המסים</a>.
+  </p>
+</section>
 
-.results-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  min-width: 250px;
-  padding: 15px;
-  border-radius: 10px;
-  background-color: #fff;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-}
+<footer>
+  <!-- כפתורי שיתוף -->
+   <!-- כיתוב קריאה לפעולה -->
+  <div id="share-buttons" style="text-align:center; margin-top:20px;">
+    <a id="whatsapp-share" target="_blank" style="margin-right:10px;">
+      <img src="images/whatsapp-icon.png" alt="שתף בוואטסאפ" width="40">
+    </a>
 
-.results p {
-  margin-bottom: 5px;
-  font-weight: 600;
-  font-size: 1rem;
-}
+    <a id="telegram-share" target="_blank" style="margin-right:10px;">
+      <img src="images/telegram-icon.png" alt="שתף בטלגרם" width="40">
+    </a>
 
-#main-bracket {
-  color: #e74c3c;
-}
+    <a id="facebook-share" target="_blank" style="margin-right:10px;">
+      <img src="images/facebook-icon.png" alt="שתף בפייסבוק" width="40">
+    </a>
 
-.chart-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 250px;
-  max-width: 300px;
-  padding: 10px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-}
+    <a id="twitter-share" target="_blank">
+      <img src="images/X-icon.png" alt="שתף בטוויטר" width="40">
+    </a>
+  </div>
+    <!-- כתובת מייל -->
+  <p>ליצירת קשר: <a href="mailto:contact@netocalc.co.il">contact@netocalc.co.il</a></p>
 
-.chart-wrapper canvas {
-  max-width: 100%;
-}
+  <!-- זכויות יוצרים -->
+  <p class="copyright">&copy; 2025 כל הזכויות שמורות</p>
 
-.legend {
-  display: flex;
-  flex-direction: column;
-  margin-top: 15px;
-  flex-wrap: wrap;
-  gap: 5px;
-}
-
-.legend div {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.95rem;
-}
-
-.color-box {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-}
-
-#tax-info {
-  margin: 30px auto;
-  padding: 20px;
-  max-width: 700px;
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  font-family: Arial, sans-serif;
-}
-
-#tax-info h2, #tax-info h3 {
-  color: #3498db;
-  text-align: center;
-  margin-bottom: 15px;
-}
-
-#tax-info p {
-  text-align: center;
-  color: #555;
-  line-height: 1.6;
-  margin-bottom: 5px;
-}
-
-#tax-info table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 0 auto 20px auto;
-  font-size: 1rem;
-  text-align: center;
-}
-
-#tax-info th, #tax-info td {
-  border: 1px solid #ddd;
-  padding: 10px;
-}
-
-#tax-info th {
-  background-color: #3498db;
-  color: #fff;
-  font-weight: 700;
-}
-
-#tax-info tr:nth-child(even) {
-  background-color: #f1f1f1;
-}
-
-#tax-info tr:hover {
-  background-color: #e0f0ff;
-}
-
-#tax-info ul {
-  color: #555;
-  line-height: 1.6;
-  padding-left: 20px;
-}
-
-.tip-icon {
-  width: 20px;
-  height: 20px;
-  vertical-align: middle;
-  margin-right: 8px;
-}
-
-#tax-info ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-#tax-info ul li {
-  position: relative;
-  padding-left: 30px;
-  margin-bottom: 10px;
-}
-
-#tax-info ul li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 20px;
-  height: 20px;
-  background-image: url('icon.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-#share-buttons img {
-  cursor: pointer;
-  transition: transform 0.2s;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-#share-buttons img:hover {
-  transform: scale(1.2);
-}
-
-/* ====== פוטר ====== */
-footer {
-  background-color: #3498db;
-  color: #fff;
-  padding: 20px 10px;
-  text-align: center;
-  margin-top: 40px;
-  font-family: Arial, sans-serif;
-  width: 100%;      /* עכשיו יתפוס את רוחב המסך */
-  max-width: 600px; /* ולא יהיה יותר מדי רחב במחשב */
-  margin: 0 auto;   /* מרכז את הפוטר */
-}
-
-/* ====== כיתוב קריאה לפעולה ====== */
-footer .share-text {
-  font-weight: 700;
-  margin-bottom: 10px;
-  font-size: 1.1rem;
-}
-
-/* ====== קישורים בפוטר ====== */
-footer a {
-  color: #fff;
-  text-decoration: underline;
-  transition: color 0.2s;
-}
-
-footer a:hover {
-  color: #e0f7ff;
-  text-decoration: none;
-}
-
-/* ====== כפתורי שיתוף ====== */
-#share-buttons {
-  margin-bottom: 15px;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-#share-buttons a img {
-  width: 40px;
-  vertical-align: middle;
-  transition: transform 0.2s;
-}
-
-#share-buttons a img:hover {
-  transform: scale(1.1);
-}
-
-/* ====== כתובת מייל ====== */
-footer p a {
-  word-break: break-word;
-}
-
-/* ====== זכויות יוצרים ====== */
-footer .copyright {
-  font-size: 0.8rem;
-  margin-top: 10px;
-}
-
-/* ריספונסיביות */
-@media screen and (max-width: 768px) {
-  .results-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    width: 100%;
-  }
-
-  .chart-wrapper, .results-wrapper {
-    width: 90%;
-    text-align: center;
-  }
-
-  .results p {
-    font-size: 1rem;
-  }
-
-  .legend div {
-    justify-content: center;
-  }
-}
-
-@media (max-width: 480px) {
-  #share-buttons a img {
-    width: 35px;
-  }
-
-  footer .share-text {
-    font-size: 1rem;
-  }
-
-  footer {
-    padding: 15px 10px;
-  }
-}
+  </footer>
+  <script src="js/config.js"></script>
+  <script src="js/calculator.js"></script>
+  <script src="js/pie.js"></script>
+  <script src="js/share.js"></script>
+</body>
+</html>
