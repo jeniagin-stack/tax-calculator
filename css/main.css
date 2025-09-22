@@ -1,4 +1,6 @@
-/* בסיסי לכל האתר */
+/* ===============================
+   בסיסי לכל האתר
+=============================== */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -26,7 +28,9 @@ body {
   box-sizing: border-box;
 }
 
-/* כותרות */
+/* ===============================
+   כותרות
+=============================== */
 h1 {
   text-align: center;
   margin: 15px 0;
@@ -60,7 +64,9 @@ p {
   margin: 0 auto;
 }
 
-/* ניווט פנימי */
+/* ===============================
+   ניווט פנימי
+=============================== */
 .internal-nav {
   display: none;
   text-align: center;
@@ -83,7 +89,9 @@ p {
   color: #e74c3c;
 }
 
-/* כפתורי Tabs */
+/* ===============================
+   כפתורי Tabs
+=============================== */
 .tabs {
   display: flex;
   justify-content: center;
@@ -106,12 +114,14 @@ p {
   color: white;
 }
 
-/* תצוגת התוצאות והגרף */
+/* ===============================
+   תצוגת התוצאות והגרף
+=============================== */
 #results-section {
   display: none;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
-  flex-direction: column; /* מרכז הכל במובייל */
+  flex-direction: column;
   align-items: center;
 }
 
@@ -132,7 +142,7 @@ p {
 
 .results-wrapper,
 .chart-wrapper {
-  max-width: 100%; /* מונע “דליפה” מה-container */
+  max-width: 100%;
 }
 
 .results-wrapper {
@@ -225,39 +235,57 @@ p {
   margin-bottom: 5px;
 }
 
-#tax-info table,
-#tax-credits table,
-#tax-tips table {
+/* ===============================
+   טבלאות – אחידות
+=============================== */
+.table-wrapper {
   width: 100%;
+  overflow-x: auto; /* גלילה אופקית במובייל */
+}
+
+.table-wrapper table {
+  width: 100%;
+  min-width: 300px;
   border-collapse: collapse;
-  margin: 0 auto 20px auto;
-  font-size: 1rem;
+  table-layout: fixed; /* רוחב אחיד של תאים */
+}
+
+.table-wrapper th,
+.table-wrapper td {
   text-align: center;
-}
-
-#tax-info th, #tax-info td,
-#tax-credits th, #tax-credits td,
-#tax-tips th, #tax-tips td {
-  border: 1px solid #ddd;
   padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
 }
 
-#tax-info th, #tax-credits th, #tax-tips th {
+.table-wrapper th {
   background-color: #3498db;
   color: #fff;
   font-weight: 700;
 }
 
-#tax-info tr:nth-child(even),
-#tax-credits tr:nth-child(even),
-#tax-tips tr:nth-child(even) {
+.table-wrapper tr:nth-child(even) {
   background-color: #f1f1f1;
 }
 
-#tax-info tr:hover,
-#tax-credits tr:hover,
-#tax-tips tr:hover {
+.table-wrapper tr:hover {
   background-color: #e0f0ff;
+}
+
+@media (max-width: 768px) {
+  .table-wrapper th,
+  .table-wrapper td {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .table-wrapper th,
+  .table-wrapper td {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
 }
 
 /* ===============================
@@ -272,15 +300,13 @@ p {
   list-style: none;
 }
 
-/* שינוי מרכזי: כל li בטיפים יהיה flex */
 #tax-tips ul li {
   display: flex;
-  align-items: flex-start; /* יישור האייקון לטקסט */
-  gap: 10px; /* ריווח בין האייקון לטקסט */
+  align-items: flex-start;
+  gap: 10px;
   margin-bottom: 15px;
 }
 
-/* משאיר את הסגנון של ה-li בחלקים האחרים כמו שהיה */
 #tax-info ul li,
 #tax-credits ul li {
   position: relative;
@@ -303,13 +329,12 @@ p {
 }
 
 #tax-tips .tip-icon {
-  flex-shrink: 0; /* מונע מהאייקון להצטמצם */
+  flex-shrink: 0;
   width: 24px;
   height: 24px;
-  margin-top: 2px; /* התאמת מיקום האייקון לגובה השורה */
+  margin-top: 2px;
 }
 
-/* טיפ נוסף לכל הסקשנים */
 .tip-icon {
   width: 20px;
   height: 20px;
@@ -328,7 +353,7 @@ p {
 }
 
 /* ===============================
-   רספונסיביות לטאבלט
+   רספונסיביות כללית
 =============================== */
 @media (max-width: 768px) {
   #tax-info,
@@ -338,130 +363,12 @@ p {
     margin: 20px 10px;
   }
 
-  #tax-info table,
-  #tax-credits table,
-  #tax-tips table,
-  #tax-info th,
-  #tax-info td,
-  #tax-credits th,
-  #tax-credits td,
-  #tax-tips th,
-  #tax-tips td {
-    font-size: 0.9rem;
-    padding: 8px;
-  }
-
   .tip-icon {
     width: 18px;
     height: 18px;
     margin-right: 6px;
   }
-}
 
-/* ===============================
-   רספונסיביות למובייל – תיקון הטבלאות
-=============================== */
-@media (max-width: 480px) {
-  #tax-info table,
-  #tax-credits table,
-  #tax-tips table {
-    display: block;
-    overflow-x: auto;   /* מוסיף גלילה אופקית */
-    white-space: nowrap; /* שומר על כל התאים בשורה */
-  }
-
-  #tax-info th, #tax-info td,
-  #tax-credits th, #tax-credits td,
-  #tax-tips th, #tax-tips td {
-    display: table-cell; /* שומר על מבנה הטבלה */
-    padding: 8px;
-    font-size: 0.9rem;
-    text-align: center;
-  }
-
-  #tax-info tr,
-  #tax-credits tr,
-  #tax-tips tr {
-    display: table-row;
-  }
-}
-
-/* שאר הקוד נשאר כפי שהיה */
-#share-buttons img {
-  cursor: pointer;
-  transition: transform 0.2s;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-#share-buttons img:hover {
-  transform: scale(1.2);
-}
-
-/* ====== פוטר ====== */
-footer {
-  background-color: #3498db;
-  color: #fff;
-  padding: 20px 10px;
-  text-align: center;
-  margin-top: 40px;
-  font-family: Arial, sans-serif;
-  width: 100%;      /* עכשיו יתפוס את רוחב המסך */
-  max-width: 600px; /* ולא יהיה יותר מדי רחב במחשב */
-  margin: 0 auto;   /* מרכז את הפוטר */
-}
-
-/* ====== כיתוב קריאה לפעולה ====== */
-footer .share-text {
-  font-weight: 700;
-  margin-bottom: 10px;
-  font-size: 1.1rem;
-}
-
-/* ====== קישורים בפוטר ====== */
-footer a {
-  color: #fff;
-  text-decoration: underline;
-  transition: color 0.2s;
-}
-
-footer a:hover {
-  color: #e0f7ff;
-  text-decoration: none;
-}
-
-/* ====== כפתורי שיתוף ====== */
-#share-buttons {
-  margin-bottom: 15px;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-#share-buttons a img {
-  width: 40px;
-  vertical-align: middle;
-  transition: transform 0.2s;
-}
-
-#share-buttons a img:hover {
-  transform: scale(1.1);
-}
-
-/* ====== כתובת מייל ====== */
-footer p a {
-  word-break: break-word;
-}
-
-/* ====== זכויות יוצרים ====== */
-footer .copyright {
-  font-size: 0.8rem;
-  margin-top: 10px;
-}
-
-/* ריספונסיביות */
-@media screen and (max-width: 768px) {
   .results-container {
     flex-direction: column;
     align-items: center;
@@ -495,4 +402,74 @@ footer .copyright {
   footer {
     padding: 15px 10px;
   }
+}
+
+/* ===============================
+   שאר הסגנונות – פוטר וכפתורי שיתוף
+=============================== */
+#share-buttons img {
+  cursor: pointer;
+  transition: transform 0.2s;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#share-buttons img:hover {
+  transform: scale(1.2);
+}
+
+footer {
+  background-color: #3498db;
+  color: #fff;
+  padding: 20px 10px;
+  text-align: center;
+  margin-top: 40px;
+  font-family: Arial, sans-serif;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+footer .share-text {
+  font-weight: 700;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+footer a:hover {
+  color: #e0f7ff;
+  text-decoration: none;
+}
+
+#share-buttons {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+#share-buttons a img {
+  width: 40px;
+  vertical-align: middle;
+  transition: transform 0.2s;
+}
+
+#share-buttons a img:hover {
+  transform: scale(1.1);
+}
+
+footer p a {
+  word-break: break-word;
+}
+
+footer .copyright {
+  font-size: 0.8rem;
+  margin-top: 10px;
 }
