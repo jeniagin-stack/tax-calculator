@@ -4,20 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>מחשבון מס הכנסה בישראל 2025 – חישוב שכר נטו, פנסיה וביטוחים</title>
-  <link rel="icon" href="images/icon-title.png" type="image/png">
+  <!-- פאביקון לכל הדפדפנים -->
+  <link rel="icon" type="image/png" href="images/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="images/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="images/favicon/favicon.ico" />
+
+  <!-- אייקון למכשירי אפל -->
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png" />
+
+  <!-- קובץ manifest למכשירים ופלטפורמות שונות -->
+  <link rel="manifest" href="images/favicon/site.webmanifest" />
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-71E0PXH3CE"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-71E0PXH3CE');
   </script>
   <meta name="description" content="חשב את השכר נטו בקלות עם מחשבון מס הכנסה 2025. כולל חישוב פנסיה, ביטוח לאומי, מס בריאות וקרן השתלמות – תוצאות מהירות וברורות לכל שכיר.">
   <meta name="keywords" content="מחשבון מס הכנסה, מס הכנסה, שכר נטו, פנסיה, ביטוח לאומי, מס בריאות, קרן השתלמות, חישוב מס 2025">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow">
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
@@ -26,17 +33,20 @@
 <body>
   <section id="intro">
   <div class="container">
-    <h1>מחשבון מס הכנסה לשכירים</h1>
+    <h1>מחשבון נטו-חשב מס הכנסה לשכירים</h1>
+    <h2>חשב את הנטו  בקליק!</h2>
 
     <!-- ניווט פנימי מוסתר כברירת מחדל -->
     <nav id="internal-nav" class="internal-nav">
-      <a href="#employeeForm">חזרה למחשבון</a> |
-      <a href="#tax-info">מדרגות מס וטיפים</a>
+      <a href="#employeeForm"> למחשבון</a> |
+      <a href="#tax-info">מדרגות מס </a> | 
+      <a href="#tax-credits">נקודות זיכוי</a> | 
+      <a href="#tax-tips">טיפים חשובים</a>
     </nav>
   </section>
     
-      <h2>חשב את הנטו  בקליק!</h2>
-      <p>מחשבון מס הכנסה, מחשב את המס החודשי בקלות ובמהירות.</p>
+      
+    <p>השתמש במחשבון מס הכנסה זה כדי לחשב את השכר נטו שלך כעובד שכיר בישראל בשנת 2025. התוצאות כוללות חישוב מס הכנסה, ביטוח לאומי, מס בריאות וקרנות פנסיה.</p>
     
     <div id="employeeForm">
     <!-- כאן כל השדות הקיימים של השכיר -->
@@ -131,11 +141,15 @@
       </div>
   <div>
 
+<!-- ============================
+     מדרגות מס הכנסה 2025
+============================ -->
 <section id="tax-info" style="display:none;">
   <h2>מדרגות מס הכנסה בישראל 2025</h2>
   <p>מס הכנסה מחושב לפי מדרגות הכנסה.</p>
   <p> ככל שההכנסה גבוהה יותר, המס גבוה יותר.</p>
-<table>
+
+  <table>
     <thead>
       <tr>
         <th>טווח הכנסה</th>
@@ -143,46 +157,64 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>עד 7,010 ₪</td>
-        <td>10%</td>
-      </tr>
-      <tr>
-        <td>7,011 – 10,060 ₪</td>
-        <td>14%</td>
-      </tr>
-      <tr>
-        <td>10,061 – 16,150 ₪</td>
-        <td>20%</td>
-      </tr>
-      <tr>
-        <td>16,151 – 22,440 ₪</td>
-        <td>31%</td>
-      </tr>
-      <tr>
-        <td>22,441 – 46,690 ₪</td>
-        <td>35%</td>
-      </tr>
-      <tr>
-        <td>46,691 – 60,130 ₪</td>
-        <td>47%</td>
-      </tr>
-      <tr>
-        <td>60,131 ₪ ומעלה</td>
-        <td>50%</td>
-      </tr>
+      <tr><td>עד 7,010 ₪</td><td>10%</td></tr>
+      <tr><td>7,011 – 10,060 ₪</td><td>14%</td></tr>
+      <tr><td>10,061 – 16,150 ₪</td><td>20%</td></tr>
+      <tr><td>16,151 – 22,440 ₪</td><td>31%</td></tr>
+      <tr><td>22,441 – 46,690 ₪</td><td>35%</td></tr>
+      <tr><td>46,691 – 60,130 ₪</td><td>47%</td></tr>
+      <tr><td>60,131 ₪ ומעלה</td><td>50%</td></tr>
     </tbody>
   </table>
-  
-  <h3>טיפים להורדת מס</h3>
+</section>
+
+<!-- ============================
+     נקודות זיכוי 2025
+============================ -->
+<section id="tax-credits" style="display: none;" class="tax-credits-section" >
+  <h2>נקודות זיכוי למס הכנסה – 2025</h2>
+  <p>נקודות זיכויי מפחיתות את מס הכנסה שתשלם.</p>
+  <p>  כל נקודה מזכה בסכום של <strong>242 ₪ לחודש</strong> (2,904 ₪ בשנה).</p>
+  <table>
+    <thead>
+      <tr>
+        <th>קריטריון זכאות</th>
+        <th>מספר נקודות</th>
+        <th>ערך לחודש (₪)</th>
+        <th>ערך לשנה (₪)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>ילד עד גיל שנה</td><td>1</td><td>242</td><td>2,904</td></tr>
+      <tr><td>ילד בן 1–2</td><td>2</td><td>484</td><td>5,808</td></tr>
+      <tr><td>ילד בן 3–17</td><td>1</td><td>242</td><td>2,904</td></tr>
+      <tr><td>בן זוג/אישה</td><td>1</td><td>242</td><td>2,904</td></tr>
+      <tr><td>סטודנט/ית</td><td>1</td><td>242</td><td>2,904</td></tr>
+      <tr><td>נכה (100%)</td><td>2</td><td>484</td><td>5,808</td></tr>
+      <tr><td>הורים לילדים עם נכות</td><td>2</td><td>484</td><td>5,808</td></tr>
+      <tr><td>חייל/ת משוחרר/ת</td><td>2</td><td>484</td><td>5,808</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============================
+     טיפים נוספים להורדת מס
+============================ -->
+<section id="tax-tips" style="display: none;">
+  <h3>💡טיפים להורדת מס💡</h3>
   <ul>
-    <li><img src="images/idea-icon.png" alt="טיפ מס הכנסה" class="tip-icon"> נצל נקודות זיכוי והטבות מס.</li>
-    <li><img src="images/idea-icon.png" alt="טיפ מס הכנסה" class="tip-icon">הפקדות לקרנות פנסיה והשתלמות עשויות להפחית את מס ההכנסה.</li>
+    <li>
+      <img src="images/idea-icon.png" alt="טיפ מס הכנסה" class="tip-icon">
+      וודא שטופס 101 שאתה מגיש למעסיק מלא עם כל הפרטים האישיים והמשפחתיים – כך כל נקודות הזיכוי שאתה זכאי להן יתקבלו .
+    </li>
+    <li><img src="images/idea-icon.png" alt="טיפ מס הכנסה" class="tip-icon"> הפקדות לקרנות פנסיה והשתלמות מפחיתות את ההכנסה החייבת במס.</li>
   </ul>
   <p style="text-align:center; margin-top:20px;">
-    למידע נוסף, בקרו באתר <a href="https://www.gov.il/he/departments/topics/income_tax_israel_tax_authority/govil-landing-page" target="_blank" rel="noopener noreferrer">רשות המסים</a>.
+    למידע נוסף, בקרו באתר 
+    <a href="https://www.gov.il/he/departments/topics/income_tax_israel_tax_authority/govil-landing-page" target="_blank" rel="noopener noreferrer">רשות המסים</a>.
   </p>
 </section>
+
 <footer>
   <!-- כפתורי שיתוף -->
    <!-- כיתוב קריאה לפעולה -->
@@ -204,7 +236,7 @@
     </a>
   </div>
     <!-- כתובת מייל -->
-  <p>ליצירת קשר: <a href="mailto:info@example.com">info@example.com</a></p>
+  <p>ליצירת קשר: <a href="mailto:contact@netocalc.co.il">contact@netocalc.co.il</a></p>
 
   <!-- זכויות יוצרים -->
   <p class="copyright">&copy; 2025 כל הזכויות שמורות</p>
