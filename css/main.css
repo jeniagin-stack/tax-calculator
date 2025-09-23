@@ -118,16 +118,17 @@ p {
    תצוגת התוצאות והגרף
 =============================== */
 #results-section {
-  display: none;
   opacity: 0;
-  transition: opacity 0.5s ease-in-out;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out;
   flex-direction: column;
   align-items: center;
 }
 
 #results-section.show {
-  display: flex;
   opacity: 1;
+  max-height: 2000px; /* מספיק גבוה כדי להכיל את כל התוכן */
 }
 
 /* סידור התוצאות והגרף */
@@ -145,21 +146,36 @@ p {
   max-width: 100%;
 }
 
-.results-wrapper {
+.results-cards {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  min-width: 250px;
-  padding: 15px;
-  border-radius: 10px;
-  background-color: #fff;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 15px;
 }
 
-.results p {
-  margin-bottom: 5px;
+.result-card {
+  flex: 1 1 120px;
+  max-width: 180px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  padding: 10px;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #fff; /* צבע טקסט לבן */
+}
+
+.result-card span {
+  display: block;
   font-weight: 600;
-  font-size: 1rem;
+  margin-bottom: 5px;
+  color: inherit; /* צבע הטקסט מותאם לרקע */
+}
+
+.result-card strong {
+  display: block;
+  font-size: 1.2rem;
+  color: inherit;
 }
 
 #main-bracket {
@@ -473,3 +489,78 @@ footer .copyright {
   font-size: 0.8rem;
   margin-top: 10px;
 }
+
+/* ===============================
+   סגנון טבלת נקודות זיכוי 2025
+=============================== */
+#credits-2025 {
+  display: none; /* מוסתר כברירת מחדל */
+  margin-top: 20px;
+  padding: 20px;
+  max-width: 700px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#credits-2025 h3 {
+  color: #3498db;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#credits-2025 p {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  color: #555;
+}
+
+#credits-2025 table {
+  width: 100%;
+  min-width: 300px;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+#credits-2025 th,
+#credits-2025 td {
+  text-align: center;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+}
+
+#credits-2025 th {
+  background-color: #3498db;
+  color: #fff;
+  font-weight: 700;
+}
+
+#credits-2025 tr:nth-child(even) {
+  background-color: #f1f1f1;
+}
+
+#credits-2025 tr:hover {
+  background-color: #e0f0ff;
+}
+
+/* רספונסיביות למובייל */
+@media (max-width: 768px) {
+  #credits-2025 th,
+  #credits-2025 td {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #credits-2025 th,
+  #credits-2025 td {
+    padding: 8px;
+    font-size: 0.85rem;
+  }
+}
+
