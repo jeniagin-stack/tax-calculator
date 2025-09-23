@@ -329,13 +329,13 @@ function updateChildrenAgesFields() {
       }
     });
 
-    ["results-section","tax-info","tax-credits","tax-tips"].forEach(id => {
-      const el = document.getElementById(id);
-      if(el) {
-        el.style.display = "none";
-        el.classList?.remove("show");
-      }
-    });
+    
+    // הסתרת רק תוצאות המחשבון, לא הטבלאות
+    const resultsSection = document.getElementById("results-section");
+    if(resultsSection){
+        resultsSection.style.display = "none";
+        resultsSection.classList?.remove("show");
+    }
 
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     legend.innerHTML = "";
