@@ -8,11 +8,8 @@ document.addEventListener("DOMContentLoaded", function() {
   const femaleBtn = document.getElementById("femaleBtn");
   const creditsInput = document.getElementById("credits");
   const childrenCount = document.getElementById("childrenCount");
-  const infantCountEl = document.getElementById("infantCount");
   const plusChild = document.getElementById("plusChild");
   const minusChild = document.getElementById("minusChild");
-  const plusInfant = document.getElementById("plusInfant");
-  const minusInfant = document.getElementById("minusInfant");
   const salaryInput = document.getElementById("salary");
   const salaryError = document.getElementById("salaryError");
   const creditsError = document.getElementById("creditsError");
@@ -24,6 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const ctx = canvas.getContext("2d");
   const hishtalmutCheckbox = document.getElementById("hishtalmutCheckbox");
   const hishtalmutInputWrapper = document.getElementById("hishtalmutInputWrapper");
+  const childrenAgesContainer = document.getElementById('childrenAgesContainer');
   
 
   // ============================
@@ -31,7 +29,6 @@ document.addEventListener("DOMContentLoaded", function() {
   // ============================
   let gender = "male";        // ברירת מחדל
   let children = 0;           // מספר ילדים רגילים
-  let infants = 0;            // מספר תינוקות מתחת לגיל 1
   const maxChildren = 10;     // גבול עליון לילדים ותינוקות
   const minChildren = 0;      // גבול תחתון
   let hishtalmut = 0;         // בדיקת קרן השתלמות
@@ -43,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function() {
   // פונקציה שמעדכנת את נקודות הזיכוי לפי מגדר וילדים
   function updateCredits() {
     const baseCredits = gender === "male" ? 2.25 : 2.75;
-    const childCredits = children * 1 + infants * 1.5; // 1 נקודה לילד רגיל, 1.5 לתינוק
+    const childCredits = children * 1  // 1 נקודה לילד רגיל, 1.5 לתינוק
     creditsInput.value = (baseCredits + childCredits).toFixed(2);
   }
 
@@ -92,6 +89,52 @@ document.addEventListener("DOMContentLoaded", function() {
       hishtalmutInputWrapper.style.display = "none";  // מסתיר את האינפוט
     }
   });
+
+
+function updateChildrenAgesFields(children) {
+  // אם 0, נסתר את השדות
+  if(children === 0){
+    childrenAgesContainer.style.display = 'none';
+    childrenAgesContainer.innerHTML = '';
+    return;
+  }
+
+  childrenAgesContainer.style.display = 'block';
+  childrenAgesContainer.innerHTML = '';
+
+  for(let i = 1; i <= children; i++){
+    const ageField = document.createElement('div');
+    ageField.className = 'child-age';
+    ageField.innerHTML = `
+      <label>גיל ילד ${i}:</label>
+      <button type="button" class="minus">-</button>
+      <input type="number" value="0" min="0" max="17" readonly>
+      <button type="button" class="plus">+</button>
+    `;
+    childrenAgesContainer.appendChild(ageField);
+  }
+
+  const plusButtons = childrenAgesContainer.querySelectorAll('.plus');
+  const minusButtons = childrenAgesContainer.querySelectorAll('.minus');
+
+  const step = 0.5; // גודל הצעד של לחיצה
+
+plusButtons.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const input = btn.previousElementSibling;
+    let val = parseFloat(input.value) || 0;
+    if (val + step <= 17) input.value = (val + step).toFixed(1); // אחד-עשרום
+  });
+});
+
+minusButtons.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const input = btn.nextElementSibling;
+    let val = parseFloat(input.value) || 0;
+    if (val - step >= 0) input.value = (val - step).toFixed(1);
+  });
+});
+}
 
   // ============================
   // 4️⃣ פונקציות חישוב
@@ -167,24 +210,22 @@ document.addEventListener("DOMContentLoaded", function() {
     if (children < maxChildren) children++;
     childrenCount.textContent = children;
     updateCredits();
+    updateChildrenAgesFields(children);
   });
   minusChild.addEventListener("click", () => {
     if (children > minChildren) children--;
     childrenCount.textContent = children;
     updateCredits();
+    updateChildrenAgesFields(children);
   });
 
-  // כפתורי תינוקות
-  plusInfant.addEventListener("click", () => {
-    if (infants < maxChildren) infants++;
-    infantCountEl.textContent = infants;
-    updateCredits();
-  });
-  minusInfant.addEventListener("click", () => {
-    if (infants > minChildren) infants--;
-    infantCountEl.textContent = infants;
-    updateCredits();
-  });
+  //הוספת שדה לכל ילד
+  // הסתרת כל השדות אם אפס
+  if(num === 0){
+    childrenAgesContainer.style.display = 'none';
+    childrenAgesContainer.innerHTML = '';
+    return;
+  }
 
   // כפתור חישוב
   calculateBtn.addEventListener("click", function (event) {
@@ -273,11 +314,8 @@ document.addEventListener("DOMContentLoaded", function() {
     // איפוס מגדר
     setGender("male")
 
-    // איפוס ילדים ותינוקות
+    // איפוס ילדים
     children = 0;
-    infants = 0;
-    childrenCount.textContent = children;
-    infantCountEl.textContent = infants;
 
     // איפוס קרן השתלמות
     const hishtalmutCheckbox = document.getElementById("hishtalmutCheckbox");
