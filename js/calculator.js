@@ -100,51 +100,59 @@ function updateCredits() {
     hishtalmutInputWrapper.style.display = hishtalmutCheckbox.checked ? "block" : "none";
   });
 
-  function updateChildrenAgesFields() {
-    childrenAgesContainer.innerHTML = "";
-    if (children === 0) {
-      childrenAgesContainer.style.display = 'none';
-      return;
-    }
-    childrenAgesContainer.style.display = 'block';
-    childrenAges.forEach((age, index) => {
-      const ageField = document.createElement('div');
-      ageField.className = 'child-age';
-      ageField.innerHTML = `
-        <label>גיל ילד/ה ${index + 1}:</label>
-        <button type="button" class="minus">-</button>
-        <input type="number" value="${age}" min="0" max="17" readonly>
-        <button type="button" class="plus">+</button>
-      `;
-      childrenAgesContainer.appendChild(ageField);
-    });
-
-    const plusButtons = childrenAgesContainer.querySelectorAll('.plus');
-    const minusButtons = childrenAgesContainer.querySelectorAll('.minus');
-    const step = 0.5;
-
-    plusButtons.forEach((btn, i) => {
-      btn.addEventListener('click', () => {
-        let val = childrenAges[i];
-        if (val + step <= 17) {
-          childrenAges[i] = +(val + step).toFixed(1);
-          updateChildrenAgesFields();
-          updateCredits();
-        }
-      });
-    });
-
-    minusButtons.forEach((btn, i) => {
-      btn.addEventListener('click', () => {
-        let val = childrenAges[i];
-        if (val - step >= 0) {
-          childrenAges[i] = +(val - step).toFixed(1);
-          updateChildrenAgesFields();
-          updateCredits();
-        }
-      });
-    });
+function updateChildrenAgesFields() {
+  const wrapper = document.getElementById('childrenAgesWrapper');
+  childrenAgesContainer.innerHTML = "";
+  if (children === 0) {
+    wrapper.style.display = 'none'; // מסתיר את כל ה-wrapper
+    return;
   }
+  wrapper.style.display = 'block'; // מראה את הכותרת + השדות
+  childrenAgesContainer.style.display = 'flex';
+  childrenAgesContainer.style.flexWrap = 'wrap';
+  childrenAgesContainer.style.justifyContent = 'center';
+  childrenAgesContainer.style.gap = '15px';
+
+  childrenAges.forEach((age, index) => {
+    const ageField = document.createElement('div');
+    ageField.className = 'child-age';
+    ageField.innerHTML = `
+      <label>ילד/ה ${index + 1}</label>
+      <button type="button" class="plus">+</button>
+      <span class="age-value">${age}</span>
+      <button type="button" class="minus">-</button>
+    `;
+
+    childrenAgesContainer.appendChild(ageField);
+  });
+
+  const plusButtons = childrenAgesContainer.querySelectorAll('.plus');
+  const minusButtons = childrenAgesContainer.querySelectorAll('.minus');
+  const ageSpans = childrenAgesContainer.querySelectorAll('.age-value');
+  const step = 0.5;
+
+  plusButtons.forEach((btn, i) => {
+    btn.addEventListener('click', () => {
+      let val = childrenAges[i];
+      if (val + step <= 17) {
+        childrenAges[i] = +(val + step).toFixed(1);
+        updateChildrenAgesFields();
+        updateCredits(); // פונקציה קיימת שלך
+      }
+    });
+  });
+
+  minusButtons.forEach((btn, i) => {
+    btn.addEventListener('click', () => {
+      let val = childrenAges[i];
+      if (val - step >= 0) {
+        childrenAges[i] = +(val - step).toFixed(1);
+        updateChildrenAgesFields();
+        updateCredits(); // פונקציה קיימת שלך
+      }
+    });
+  });
+}
 
   function getChildrenAges() {
     const ages = [];
@@ -242,13 +250,14 @@ function updateCredits() {
       .filter(br => salary > br.min)
       .reduce((prev, curr) => (curr.rate > prev.rate ? curr : prev), { rate: 0 });
 
-    document.getElementById("net").textContent = `נטו: ${netSalary.toFixed(2)} ₪`;
-    document.getElementById("tax").textContent = `מס הכנסה מצטבר: ${incomeTax.toFixed(2)} ₪`;
-    document.getElementById("health").textContent = `מס בריאות: ${health.toFixed(2)} ₪`;
-    document.getElementById("social").textContent = `מס ביטוח לאומי: ${social.toFixed(2)} ₪`;
-    document.getElementById("pension").textContent = `פנסיה חובה: ${pensionData.pension.toFixed(2)} ₪`;
-    document.getElementById("hishtalmut").textContent = `קרן השתלמות: ${pensionData.hishtalmut.toFixed(2)} ₪`;
-    document.getElementById("main-bracket").textContent = `מדרגת מס: ${(maxBracket.rate*100).toFixed(0)}%`;
+    document.getElementById('net').textContent = netSalary.toFixed(2) + " ₪";
+    document.getElementById('tax').textContent = incomeTax.toFixed(2) + " ₪";
+    document.getElementById('health').textContent = health.toFixed(2) + " ₪";
+    document.getElementById('social').textContent = social.toFixed(2) + " ₪";
+    document.getElementById('pension').textContent = pensionData.pension.toFixed(2) + " ₪";
+    document.getElementById('hishtalmut').textContent = pensionData.hishtalmut.toFixed(2) + " ₪";
+    document.getElementById('main-bracket').textContent = (maxBracket.rate*100).toFixed(0) + "%";
+
 
     const resultsSection = document.getElementById("results-section");
     resultsSection.style.display = "flex";
@@ -260,17 +269,33 @@ function updateCredits() {
     const taxInfoSection = document.getElementById("tax-info");
     const taxCreditsSection = document.getElementById("tax-credits");
     const taxTipsSection = document.getElementById("tax-tips");
+    const credits2025 = document.getElementById('credits-2025');
     taxInfoSection.style.display = "block";
     taxCreditsSection.style.display = "block";
     taxTipsSection.style.display = "block";
+    credits2025.style.display = 'block';
 
     const nav = document.getElementById("internal-nav");
     nav.style.display = "block";
 
     const values = [netSalary, incomeTax, health, social, pensionData.pension, pensionData.hishtalmut];
     const colors = ['#2ecc71','#e74c3c','#f1c40f','#3498db','#9b59b6','#f39c12'];
-    drawPieChartAnimated(ctx, values, colors, legend);
+    // רשימת הכרטיסים לפי סדר
+    const resultCards = document.querySelectorAll('.results-cards .result-card');
 
+    resultCards.forEach((card, index) => {
+      if(colors[index]) {
+        card.style.backgroundColor = colors[index]; // רקע בצבע הגרף
+        card.style.color = '#fff'; // צבע טקסט לבן לניגודיות
+      }
+
+    // כרטיס מדרגת מס
+    const mainBracketCard = document.getElementById('main-bracket').parentElement;
+    mainBracketCard.style.backgroundColor = '#000'; // צבע ברור
+    mainBracketCard.style.color = '#fff'; // או אם צריך שחור: '#000'
+    });
+    drawPieChartAnimated(ctx, values, colors, legend);
+    
     showTaxInfo();
 
     gtag('event', 'calculate_click', { 'event_category': 'Calculator', 'event_label': 'Net calculator used' });
