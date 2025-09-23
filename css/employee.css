@@ -126,44 +126,53 @@
   text-align: center;
 }
 
-.children-ages-container {
+.children-ages-title {
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #333;
+}
+
+#childrenAgesContainer {
   display: flex;
-  flex-wrap: wrap; /* מאפשר מעבר אוטומטי לשורה הבאה */
-  gap: 10px;       /* רווח בין כרטיסי הילדים */
-  padding: 10px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  flex-wrap: wrap;
+  justify-content: center; /* מרכז את הכרטיסים */
+  gap: 10px;
+  margin-top: 10px;
 }
 
 .child-age {
-  min-width: 60px;     /* כרטיס קטן יותר */
-  flex: 1 0 auto;      /* מתרחב לפי מקום פנוי */
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 5px;
-  padding: 6px 10px;
-  background: #f9f9f9;
-  border-radius: 6px;
+  width: 100px;          /* רוחב בסיסי */
+  min-width: 80px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  gap: 8px;
+  font-size: 14px;
 }
 
-.child-age span {
-  font-weight: 600;
-  font-size: 0.9rem;
-}
-
+/* input */
 .child-age input {
-  width: 40px;
+  width: 50px;
   text-align: center;
+  padding: 6px;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 2px 0;
+  border-radius: 6px;
+  font-weight: 600;
 }
 
+/* כפתורים + / – */
 .child-age button {
-  padding: 2px 6px;
+  padding: 4px 8px;      /* פחות מקום */
+  font-size: 14px;       /* קטן יותר */
   border: 1px solid #3498db;
-  border-radius: 4px;
+  border-radius: 6px;
   background-color: #fff;
   color: #3498db;
   font-weight: 600;
@@ -176,13 +185,26 @@
   color: #fff;
 }
 
-/* רספונסיבי לנייד */
-@media (max-width: 480px) {
+/* גרסת מובייל – כרטיסים תופסים כמעט את כל רוחב המסך */
+@media (max-width: 600px) {
   .child-age {
-    flex: 1 1 45%; /* כל ילד תופס חצי רוחב מסך */
+    width: 80%; /* כמעט רוחב מלא */
+  }
+
+  /* שורה אופקית לכפתורים */
+  .child-age input,
+  .child-age button {
+    width: auto;
+  }
+
+  .child-age .buttons-row {
+    display: flex;
     justify-content: center;
+    gap: 5px;
+    width: 100%;
   }
 }
+
 
 
 
