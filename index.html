@@ -62,7 +62,8 @@
     <nav id="internal-nav" class="internal-nav">
       <a href="#employeeForm"> למחשבון</a> |
       <a href="#tax-info">מדרגות מס </a> | 
-      <a href="#tax-credits">נקודות זיכוי</a> | 
+      <a href="#tax-credits">נקודות זיכוי</a> |
+      <a href="#credits-2025">נקודות זיכוי ילדים</a> | 
       <a href="#tax-tips">טיפים חשובים</a>
     </nav>
   </section>
@@ -120,9 +121,10 @@
       </div>
     </div>
 
-    <div id="childrenAgesContainer" class="children-ages-container" style="display: none;">
-      <!-- כאן השדות של גיל הילדים יתווספו דינמית -->
-    </div>
+<div id="childrenAgesWrapper" style="display: none;">
+  <p class="children-ages-title">בחר את הגיל עבור כל ילד/ה:</p>
+  <div id="childrenAgesContainer"></div>
+</div>
     
 
 
@@ -142,24 +144,45 @@
         <button id="clear">נקה</button>
       </div>
 
-      <div id="results-section" class="results-container">
-        <div class="results">
-          <p>תוצאות: </p>
-          <p id="net">נטו: </p>
-          <p id="tax">מס הכנסה מצטבר: </p>
-          <p id="health">מס בריאות: </p>
-          <p id="social">מס ביטוח לאומי: </p>
-          <p id="pension">פנסיה חובה: </p>
-          <p id="hishtalmut">קרן השתלמות: </p>
-          <p id="main-bracket">מדרגת מס: </p>
-        </div>
+<div id="results-section" class="results-container">
+  <div class="results-cards">
+    <div class="result-card">
+      <span>נטו</span>
+      <strong id="net">0</strong>
+    </div>
+    <div class="result-card">
+      <span>מס הכנסה מצטבר</span>
+      <strong id="tax">0</strong>
+    </div>
+    <div class="result-card">
+      <span>מס בריאות</span>
+      <strong id="health">0</strong>
+    </div>
+    <div class="result-card">
+      <span>מס ביטוח לאומי</span>
+      <strong id="social">0</strong>
+    </div>
+    <div class="result-card">
+      <span>פנסיה חובה</span>
+      <strong id="pension">0</strong>
+    </div>
+    <div class="result-card">
+      <span>קרן השתלמות</span>
+      <strong id="hishtalmut">0</strong>
+    </div>
+    <div class="result-card">
+      <span>מדרגת מס</span>
+      <strong id="main-bracket">0</strong>
+    </div>
+  </div>
 
-        <div class="chart-wrapper">
-          <canvas id="pieChart" width="200" height="200"></canvas>
-          <div class="legend" id="legend"></div>
-        </div>
-      </div>
-  <div>
+  <!-- העברתי את הגרף לכאן -->
+  <div class="chart-wrapper">
+    <canvas id="pieChart" width="200" height="200"></canvas>
+    <div class="legend" id="legend"></div>
+  </div>
+</div>
+
 
 <!-- ============================
      מדרגות מס הכנסה 2025
@@ -219,6 +242,35 @@
     </table>
   </div>
 </section>
+<!-- ============================
+     נקודות זיכוי עבור ילדים 2025
+============================ -->
+<div id="credits-2025" class="table-wrapper" style="display: none; margin-top: 20px;">
+  <h3>נקודות זיכוי ילדים – שנת 2025</h3>
+  <p style="text-align: center; margin-bottom: 10px; font-size: 1rem; color: #555;">
+    המחשבון מחשב את נקודות הזיכוי לילדים לפי כמות הילדים וגילם, ומציג את הפירוט הרשמי לשנת 2025.
+  </p>
+  <table>
+    <thead>
+      <tr>
+        <th>גיל הילד בשנת המס</th>
+        <th>נק' לאם / הורה עם קצבת ילדים</th>
+        <th>נק' לאב / הורה בלי קצבת ילדים</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>שנת הלידה</td><td>2.5</td><td>2.5</td></tr>
+      <tr><td>השנה בה הילד בן שנה</td><td>4.5</td><td>4.5</td></tr>
+      <tr><td>השנה בה הילד בן שנתיים</td><td>4.5</td><td>4.5</td></tr>
+      <tr><td>השנה בה הילד בן שלוש</td><td>3.5</td><td>3.5</td></tr>
+      <tr><td>גיל 4–5</td><td>2.5</td><td>2.5</td></tr>
+      <tr><td>גיל 6–12</td><td>2 (מ-2022)</td><td>1 (מ-2022)</td></tr>
+      <tr><td>גיל 13–17</td><td>2 (מ-2024)</td><td>1 (מ-2024)</td></tr>
+      <tr><td>גיל 18</td><td>0.5</td><td>0</td></tr>
+    </tbody>
+  </table>
+</div>
+
 
 <!-- ============================
      טיפים נוספים להורדת מס
