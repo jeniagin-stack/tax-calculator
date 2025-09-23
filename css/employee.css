@@ -126,6 +126,66 @@
   text-align: center;
 }
 
+.children-ages-container {
+  display: flex;
+  flex-wrap: wrap; /* מאפשר מעבר אוטומטי לשורה הבאה */
+  gap: 10px;       /* רווח בין כרטיסי הילדים */
+  padding: 10px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.child-age {
+  min-width: 60px;     /* כרטיס קטן יותר */
+  flex: 1 0 auto;      /* מתרחב לפי מקום פנוי */
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 10px;
+  background: #f9f9f9;
+  border-radius: 6px;
+}
+
+.child-age span {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.child-age input {
+  width: 40px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 2px 0;
+}
+
+.child-age button {
+  padding: 2px 6px;
+  border: 1px solid #3498db;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #3498db;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.child-age button:hover {
+  background-color: #3498db;
+  color: #fff;
+}
+
+/* רספונסיבי לנייד */
+@media (max-width: 480px) {
+  .child-age {
+    flex: 1 1 45%; /* כל ילד תופס חצי רוחב מסך */
+    justify-content: center;
+  }
+}
+
+
+
 .inputs {
   display: flex;
   flex-direction: column;
