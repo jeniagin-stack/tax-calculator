@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", function() {
   // ============================
   // 1️⃣ אלמנטים מה-DOM
   // ============================
+  const periodMonthly = document.getElementById('periodMonthly');
+  const periodYearly = document.getElementById('periodYearly');
   const maleBtn = document.getElementById("maleBtn");
   const femaleBtn = document.getElementById("femaleBtn");
   const creditsInput = document.getElementById("credits");
@@ -24,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const hishtalmutInputWrapper = document.getElementById("hishtalmutInputWrapper");
   const childrenAgesContainer = document.getElementById('childrenAgesContainer');
   const employeeForm = document.getElementById("employeeForm");
+  
 
   // ============================
   // 2️⃣ משתנים כלליים
@@ -37,6 +40,17 @@ document.addEventListener("DOMContentLoaded", function() {
   // ============================
   // 3️⃣ פונקציות עזר
   // ============================
+  periodMonthly.addEventListener('click', () => {
+  periodMonthly.classList.add('active');
+  periodYearly.classList.remove('active');
+  // הגדר חישוב לחודשי
+  });
+
+  periodYearly.addEventListener('click', () => {
+    periodYearly.classList.add('active');
+    periodMonthly.classList.remove('active');
+    // הגדר חישוב לשנתי
+  });
 function updateCredits() {
   // נקודות בסיס
   let credits = gender === "male" ? 2.25 : 2.75;
@@ -234,21 +248,38 @@ function updateChildrenAgesFields() {
     event.preventDefault();
     if(!validateInputs()) return;
 
-    const salary = Number(salaryInput.value);
+    let salary = Number(salaryInput.value);
     const credits = Number(creditsInput.value);
     const taxYear = Number(taxYearSelect.value);
     const config = TAX_CONFIG[taxYear].employee;
+    const isYearly = document.getElementById('periodYearly').classList.contains('active');
+    
+    // אם שנתי, תחלק ל-12 לצורך החישוב
+    if(isYearly){
+       salary /= 12;
+    }
 
-    const incomeTax = calculateTax(salary, credits, config.TAX_BRACKETS, config.CREDIT_VALUE);
-    const social = calculateContribution(salary, config.SOCIAL_BRACKETS);
-    const health = calculateContribution(salary, config.HEALTH_BRACKETS);
-    const pensionData = calculatePension(salary, config.PENSION_RATE);
+    let incomeTax = calculateTax(salary, credits, config.TAX_BRACKETS, config.CREDIT_VALUE);
+    let social = calculateContribution(salary, config.SOCIAL_BRACKETS);
+    let health = calculateContribution(salary, config.HEALTH_BRACKETS);
+    let pensionData = calculatePension(salary, config.PENSION_RATE);
 
-    const netSalary = salary - incomeTax - social - health - pensionData.pension - pensionData.hishtalmut;
+    let netSalary = salary  - incomeTax - social - health - pensionData.pension - pensionData.hishtalmut;
 
     const maxBracket = config.TAX_BRACKETS
-      .filter(br => salary > br.min)
+      .filter(br => salary   > br.min)
       .reduce((prev, curr) => (curr.rate > prev.rate ? curr : prev), { rate: 0 });
+
+        // אם שנתי, נכפיל את כל התוצאות ב-12
+    if(isYearly){
+        netSalary *= 12;
+        incomeTax *= 12;
+        social *= 12;
+        health *= 12;
+        pensionData.pension *= 12;
+        pensionData.hishtalmut *= 12;
+    }
+
 
     document.getElementById('net').textContent = netSalary.toFixed(2) + " ₪";
     document.getElementById('tax').textContent = incomeTax.toFixed(2) + " ₪";
@@ -296,7 +327,7 @@ function updateChildrenAgesFields() {
     });
     drawPieChartAnimated(ctx, values, colors, legend);
     
-    showTaxInfo();
+    
 
     gtag('event', 'calculate_click', { 'event_category': 'Calculator', 'event_label': 'Net calculator used' });
   });
