@@ -8,51 +8,100 @@
   margin: 0 auto;   /* מרכז אופקי */
   display: flex;
   flex-direction: column;
-  justify-content: center; /* מרכז אופקי */
+  justify-content: center; 
   align-items: center;
   padding: 12px;
-  /* אם תרצה למרכז גם אנכית במסך אפשר להוסיף: min-height: 100vh; */
 }
 
-/* השורה עם הבחירות */
+/* כרטיס אחד למחשבון */
+.option-box {
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px;
+  width: 100%;
+  max-width: 400px;
+  max-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px; /* רווח בין כל חלק במחשבון */
+}
+
+/* Period Selection (חודשי / שנתי) */
+.period-selection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+}
+
+.period-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.period-buttons button {
+  padding: 10px 20px;
+  border: 1px solid #3498db;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #3498db;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.period-buttons button.active {
+  background-color: #3498db;
+  color: #fff;
+}
+
+.period-buttons button:hover {
+  background-color: #2980b9;
+  color: #fff;
+}
+
+/* השורה עם בחירת שנה ומגדר */
 .controls-row {
   display: flex;
   gap: 20px;
   align-items: center;
-  justify-content: center; /* מרכז השורה */
-  flex-wrap: wrap;         /* ירדו שורה במסכים קטנים */
-  max-width: 400px;        /* הגבלה לרוחב לשמירה על אסתטיקה */
+  justify-content: center;
+  flex-wrap: wrap;
   width: 100%;
-  padding: 10px 10px;
+  max-width: 400px;
+  padding: 10px;
   border-radius: 10px;
   background: #fff;
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
 
+/* טקסט הסבר למשתמש */
 .form-hint {
   display: block;
   width: 100%;
-  text-align: center !important;  /* מרכז */
+  text-align: center !important;
   font-size: 1.2rem;
-  font-weight: 600; 
+  font-weight: 600;
   color: #333;
   margin: 0;
 }
 
 /* Year + gender internal layout */
-.year-select, .gender-group {
+.year-select, .gender-buttons {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-/* תוויות - שימוש ב-margin-inline-start ל-RTL */
-.year-select label, .gender-group .gender-option {
+.year-select label {
   font-weight: 600;
   margin-inline-start: 6px;
 }
 
-/* עיצוב select */
 .year-select select {
   padding: 8px 10px;
   border: 1px solid #d0d7de;
@@ -60,12 +109,6 @@
   background: #f8fafc;
   min-width: 140px;
   max-width: 100%;
-}
-
-.gender-buttons {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
 }
 
 .gender-buttons button {
@@ -90,229 +133,17 @@
   color: #fff;
 }
 
-.children-picker {
+/* קרן השתלמות */
+.hishtalmut-section {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin: 10px 0 12px 0;
-  background: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  max-width: 400px;
-  width: 100%;
-  padding: 10px 10px;
-  border-radius: 10px;
-}
-
-.children-picker button {
-  padding: 6px 12px;
-  border: 1px solid #3498db;
-  border-radius: 6px;
-  background-color: #fff;
-  color: #3498db;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.children-picker button:hover {
-  background-color: #3498db;
-  color: #fff;
-}
-
-.children-picker p {
-  font-size: 1.2rem;
-  font-weight: 600;
-  text-align: center;
-}
-
-.children-ages-title {
-  text-align: center;
-  font-weight: 600;
-  margin-bottom: 10px;
-  font-size: 16px;
-  color: #333;
-}
-
-#childrenAgesContainer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center; /* מרכז את הכרטיסים */
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.child-age {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100px;          /* רוחב בסיסי */
-  min-width: 80px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  background-color: #fff;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  gap: 8px;
-  font-size: 14px;
-}
-
-/* input */
-.child-age input {
-  width: 50px;
-  text-align: center;
-  padding: 6px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-weight: 600;
-}
-
-/* כפתורים + / – */
-.child-age button {
-  padding: 4px 8px;      /* פחות מקום */
-  font-size: 14px;       /* קטן יותר */
-  border: 1px solid #3498db;
-  border-radius: 6px;
-  background-color: #fff;
-  color: #3498db;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.child-age button:hover {
-  background-color: #3498db;
-  color: #fff;
-}
-
-/* גרסת מובייל – כרטיסים תופסים כמעט את כל רוחב המסך */
-@media (max-width: 600px) {
-  .child-age {
-    width: 80%; /* כמעט רוחב מלא */
-  }
-
-  /* שורה אופקית לכפתורים */
-  .child-age input,
-  .child-age button {
-    width: auto;
-  }
-
-  .child-age .buttons-row {
-    display: flex;
-    justify-content: center;
-    gap: 5px;
-    width: 100%;
-  }
-}
-
-
-
-
-.inputs {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-  margin: 10px 0;
-  width: 100%;
-}
-
-.inputs label {
-  font-size: 1.2rem;
-  width: 100%;
-  max-width: 400px;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-}
-
-.inputs input {
-  font-size: 1.2rem;
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  text-align: center;
-  max-width: 100%; /* מונע גלישה אופקית */
-}
-
-.error-message {
-  color: red;
-  font-size: 14px;
-  margin-top: 4px;
-}
-
-.buttons {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin: 20px 0;
-}
-
-.buttons button {
-  padding: 12px 25px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-#calculate {
-  background-color: #3498db;
-  color: #fff;
-}
-
-#calculate:hover {
-  background-color: #2980b9;
-  box-shadow: 0 6px 8px rgba(0,0,0,0.15);
-}
-
-#clear {
-  background-color: #e74c3c;
-  color: #fff;
-}
-
-#clear:hover {
-  background-color: #c0392b;
-  box-shadow: 0 6px 8px rgba(0,0,0,0.15);
-}
-
-/* רספונסיבי: במובייל נשנה לכיוון עמודה ומרכז טקסט */
-@media (max-width: 600px) {
-  .controls-row {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 10px; /* מצמצם רווח למסכים קטנים */
-  }
-}
-
-/* קופסה לבנה מסביב לכל בחירה */
-.option-box {
-  background: #fff;
-  border-radius: 12px;
-  padding: 15px;
-  margin: 10px auto;
-  max-width: 800px;
-  width: 100%; /* גמיש למובייל */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-}
-
-/* עוטף את הסוויץ והאינפוט */
-.hishtalmut-wrapper {
-  display: flex;
-  justify-content: center;
+  flex-direction: row; /* עכשיו בשורה */
   align-items: center;
   gap: 10px;
-  flex-wrap: wrap;
+  width: auto;
+  padding: 5px 0;
 }
 
-/* toggle switch */
+
 .switch {
   position: relative;
   display: inline-block;
@@ -365,9 +196,9 @@ input:checked + .slider:before {
   text-align: center;
 }
 
-/* אינפוט של קרן השתלמות */
 #hishtalmutInputWrapper {
   display: none;
+  margin-top: 10px;
 }
 
 #hishtalmutInputWrapper label {
@@ -384,9 +215,194 @@ input:checked + .slider:before {
   font-weight: 500;
 }
 
-/* התאמה למובייל */
+/* ילדים */
+.children-picker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.children-picker .buttons-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.children-picker button {
+  padding: 6px 12px;
+  border: 1px solid #3498db;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #3498db;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.children-picker button:hover {
+  background-color: #3498db;
+  color: #fff;
+}
+
+.children-picker p {
+  width: 100%;
+  max-width: 400px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+#childrenAgesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.child-age {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100px;
+  min-width: 80px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  gap: 8px;
+  font-size: 14px;
+}
+
+.child-age input {
+  width: 50px;
+  text-align: center;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.child-age button {
+  padding: 4px 8px;
+  font-size: 14px;
+  border: 1px solid #3498db;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #3498db;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.child-age button:hover {
+  background-color: #3498db;
+  color: #fff;
+}
+
+/* שכר ברוטו ונקודות זיכוי */
+.inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+}
+
+.inputs label {
+  font-size: 1.2rem;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.inputs input {
+  font-size: 1.2rem;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  text-align: center;
+  max-width: 100%;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+/* כפתורי חישוב וניקוי */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.buttons button {
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+#calculate {
+  background-color: #3498db;
+  color: #fff;
+}
+
+#calculate:hover {
+  background-color: #2980b9;
+  box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+}
+
+#clear {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+#clear:hover {
+  background-color: #c0392b;
+  box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+}
+
+/* רספונסיבי */
+@media (max-width: 600px) {
+  .controls-row {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .child-age {
+    width: 80%;
+  }
+
+  .child-age input,
+  .child-age button {
+    width: auto;
+  }
+
+  .child-age .buttons-row {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    width: 100%;
+  }
+}
+
 @media (max-width: 480px) {
-  .hishtalmut-wrapper, #hishtalmutInputWrapper {
+  .hishtalmut-section, #hishtalmutInputWrapper {
     flex-direction: column;
     align-items: center;
     margin-top: 10px;
