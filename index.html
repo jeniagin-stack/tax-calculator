@@ -74,10 +74,11 @@
       <!-- Internal Navigation -->
       <nav id="internal-nav" class="internal-nav">
         <a href="#employeeForm"> למחשבון</a> |
+        <a href="#tax-tips">טיפים חשובים</a> | 
         <a href="#tax-info">מדרגות מס </a> | 
         <a href="#tax-credits">נקודות זיכוי</a> |
-        <a href="#credits-2025">נקודות זיכוי ילדים</a> | 
-        <a href="#tax-tips">טיפים חשובים</a>
+        <a href="#credits-2025">נקודות זיכוי ילדים</a>
+        
       </nav>
     </div>
   </section>
@@ -107,11 +108,11 @@
           <label for="taxYear">שנת מס:</label>
           <select id="taxYear">
             <option value="2025" selected>2025</option>
-            <option value="2024">2024</option>
+           <!--  <option value="2024">2024</option>
             <option value="2023">2023</option>
             <option value="2022">2022</option>
             <option value="2021">2021</option>
-            <option value="2020">2020</option>
+            <option value="2020">2020</option> -->
           </select>
         </div> <!-- סגירת year-select -->
 
@@ -171,6 +172,21 @@
   </section> <!-- סגירת employeeForm -->
 
 <div id="results-section" class="results-container">
+    <!-- Buttons row: affiliate | generate PDF | tips -->
+     <div class="action-row" role="region" aria-label="פעולות מהירות">
+
+    <!-- כפתור PDF באמצע -->
+    <button id="generatePdf" class="btn btn-pdf" type="button" aria-label="הורד דוח PDF">
+      📄 הורד דוח PDF
+    </button>
+
+    <!-- כפתור טיפים -->
+    <button id="taxTipsBtn" class="btn btn-tips" type="button" aria-label="טיפים להורדת מס" onclick="document.getElementById('tax-tips').scrollIntoView({behavior: 'smooth'})">
+      💡 טיפים להורדת מס
+    </button>
+  </div>
+
+
   <div class="results-cards">
     <div class="result-card">
       <span>נטו</span>
@@ -208,6 +224,27 @@
     <div class="legend" id="legend"></div>
   </div>
 </div>
+
+<p>השתמש במחשבון מס הכנסה זה כדי לחשב את השכר נטו שלך כעובד שכיר בישראל בשנת 2025. התוצאות כוללות חישוב מס הכנסה, ביטוח לאומי, מס בריאות וקרנות פנסיה.</p>
+<!-- ============================
+     טיפים נוספים להורדת מס
+============================ -->
+<section id="tax-tips" style="display: none;">
+  <h3>💡טיפים להורדת מס💡</h3>
+  <ul>
+    <li>
+      <img src="images/idea-icon.png" alt="טיפ מס הכנסה" class="tip-icon">
+      וודא שטופס 101 שאתה מגיש למעסיק מלא עם כל הפרטים האישיים והמשפחתיים – כך כל נקודות הזיכוי שאתה זכאי להן יתקבלו .
+    </li>
+    <li><img src="images/idea-icon.png" alt="טיפ מס הכנסה" class="tip-icon"> הפקדות לקרנות פנסיה והשתלמות מפחיתות את ההכנסה החייבת במס.</li>
+  </ul>
+  <p style="text-align:center; margin-top:20px;">
+    למידע נוסף, בקרו באתר 
+    <a href="https://www.gov.il/he/departments/topics/income_tax_israel_tax_authority/govil-landing-page" target="_blank" rel="noopener noreferrer">רשות המסים</a>.
+  </p>
+</section>
+
+
 
 
 <!-- ============================
@@ -298,25 +335,6 @@
 </div>
 
 
-<!-- ============================
-     טיפים נוספים להורדת מס
-============================ -->
-<section id="tax-tips" style="display: none;">
-  <h3>💡טיפים להורדת מס💡</h3>
-  <ul>
-    <li>
-      <img src="images/idea-icon.png" alt="טיפ מס הכנסה" class="tip-icon">
-      וודא שטופס 101 שאתה מגיש למעסיק מלא עם כל הפרטים האישיים והמשפחתיים – כך כל נקודות הזיכוי שאתה זכאי להן יתקבלו .
-    </li>
-    <li><img src="images/idea-icon.png" alt="טיפ מס הכנסה" class="tip-icon"> הפקדות לקרנות פנסיה והשתלמות מפחיתות את ההכנסה החייבת במס.</li>
-  </ul>
-  <p style="text-align:center; margin-top:20px;">
-    למידע נוסף, בקרו באתר 
-    <a href="https://www.gov.il/he/departments/topics/income_tax_israel_tax_authority/govil-landing-page" target="_blank" rel="noopener noreferrer">רשות המסים</a>.
-  </p>
-</section>
-<p>השתמש במחשבון מס הכנסה זה כדי לחשב את השכר נטו שלך כעובד שכיר בישראל בשנת 2025. התוצאות כוללות חישוב מס הכנסה, ביטוח לאומי, מס בריאות וקרנות פנסיה.</p>
-
 <footer>
   <!-- כפתורי שיתוף -->
    <!-- כיתוב קריאה לפעולה -->
@@ -344,10 +362,19 @@
   <p class="copyright">&copy; 2025 כל הזכויות שמורות</p>
 
   </footer>
+  <!-- jsPDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <!-- jsPDF AutoTable אם רוצים טבלאות -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+  <!-- הפונטים -->
+  <script src="Fonts/Fonts.js"></script>
+  <!-- הסקריפט שלנו -->
+  <!-- טעינת fonts.js כ-module שמייצא את DavidRegular -->
+  <script type="module" src="js/pdfGenerator.js"></script>
   <script src="js/config.js"></script>
   <script src="js/calculator.js"></script>
   <script src="js/pie.js"></script>
   <script src="js/share.js"></script>
+
 </body>
 </html>
-
