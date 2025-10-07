@@ -1,0 +1,131 @@
+/* ===============================
+   סגנון FAQ – עמוד About
+=============================== */
+
+header.container img {
+  display: block;       /* הופך את התמונה לבלוק כדי שהמרכז יעבוד */
+  margin: 0 auto 20px;  /* מרכז אופקי ומרווח תחתון */
+  max-width: 600px;     /* הקטנה של הלוגו */
+  height: auto;         /* שומר על פרופורציה */
+}
+
+.faq-section {
+  background-color: #fff;
+  padding: 30px;
+  margin: 30px auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: right;
+  max-width: 800px;
+}
+
+.faq-item {
+  margin-bottom: 20px;
+}
+
+.faq-item h3 {
+  cursor: pointer;
+  padding: 10px;
+  background-color: #e6f2ff;
+  border-radius: 5px;
+  text-align: right;
+  font-size: 1.1rem;
+}
+
+.faq-item p {
+  display: block;
+  padding: 10px;
+  border-right: 3px solid #0066cc;
+  margin-top: 5px;
+  background-color: #f5faff;
+  text-align: right;
+}
+
+/* קישור חזרה למחשבון */
+.back-button {
+  display: inline-block;
+  margin: 20px 0;
+  padding: 10px 20px;
+  background: #1E88E5;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+}
+
+.back-button:hover {
+  background: #1565C0;
+}
+
+/* עיצוב ספציפי ל‑About */
+.about-section p {
+  max-width: 700px;
+  margin: 0 auto 15px auto;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* רספונסיביות ל‑FAQ */
+@media (max-width: 768px) {
+  .faq-section {
+    padding: 20px;
+    margin: 20px 10px;
+  }
+
+  .faq-item h3 {
+    font-size: 1rem;
+    padding: 8px;
+  }
+
+  .faq-item p {
+    font-size: 1rem;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .faq-item h3 {
+    font-size: 0.95rem;
+  }
+
+  .faq-item p {
+    font-size: 0.95rem;
+  }
+}
+
+a.email-link {
+  display: block;       /* הופך את הקישור לבלוק */
+  margin: 20px auto;    /* מרכז אופקי ומרווח אנכי */
+  padding: 10px 20px;
+  background: #1E88E5;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  text-align: center;   /* רק למקרה */
+  max-width: 600px;
+}
+
+a.email-link:hover {
+  background: #1565C0;
+}
+
+.back-to-calculator {
+  display: block;       /* הופך את הכפתור לבלוק */
+  margin: 30px auto;    /* מרכז אופקי ומרווח אנכי */
+  padding: 10px 20px;
+  background: #1E88E5;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  text-align: center;
+  transition: background 0.3s;
+  max-width: 800px;
+}
+
+.back-to-calculator:hover {
+  background: #1565C0;
+}
