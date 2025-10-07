@@ -3,23 +3,90 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>מי אני – Netocalc | יצירת קשר</title>
-  <meta name="description" content="עמוד אודות Netocalc – מחשבון מס הכנסה לשכירים 2025. כאן תוכלו ליצור קשר באמצעות המייל שלנו.">
+  <title>מי אני – Netocalc | מידע על האתר ושאלות נפוצות</title>
+  <meta name="description" content="עמוד אודות Netocalc – מחשבון מס הכנסה לשכירים 2025. למדו על האתר, השירותים שלנו וגלו שאלות נפוצות עם תשובות שיעזרו לכם לחשב שכר נטו בצורה נכונה.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://netocalc.co.il/about.html" />
 
   <!-- Fonts & CSS -->
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/employee.css">
+  <link rel="stylesheet" href="css/about.css">
 
-  <style>
-    body { font-family: 'Heebo', sans-serif; line-height: 1.6; margin:0; padding:0; }
-    .container { max-width:800px; margin:0 auto; padding:20px; text-align:center; }
-    a.email-link { display:inline-block; margin:20px 0; padding:10px 20px; background:#1E88E5; color:white; text-decoration:none; border-radius:5px; font-size:1.1rem; }
-    a.email-link:hover { background:#1565C0; }
-    header img { max-width:200px; }
-  </style>
+  <!-- JSON-LD FAQ -->
+<script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+        "@type": "Question",
+        "name": "מהו Netocalc ואיך האתר עובד?",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Netocalc הוא מחשבון מס הכנסה לשכירים בישראל לשנת 2025. האתר מאפשר לחשב שכר נטו חודשי ושנתי, כולל נקודות זיכוי, פנסיה וקרן השתלמות. חזור למחשבון: <a href='#employeeForm'>חזור למחשבון</a> והמשך לקרוא את ההסברים למטה."
+        }
+        },
+        {
+        "@type": "Question",
+        "name": "איך מחשבים את השכר נטו שלי עם Netocalc?",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ניתן להזין את השכר הברוטו, נקודות זיכוי, קרן השתלמות וכל הנתונים האישיים כדי לקבל חישוב מדויק של השכר נטו. <a href='#employeeForm'>חשב כאן במחשבון</a> וגלול למטה להסברים נוספים."
+        }
+        },
+        {
+        "@type": "Question",
+        "name": "מהן נקודות הזיכוי ואיך הן משפיעות על המס?",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "נקודות זיכוי מפחיתות את מס ההכנסה בהתאם למצב אישי, גיל, ילדים וסטטוס. ניתן לראות את ההשפעה המדויקת במחשבון. <a href='#employeeForm'>נסה את המחשבון</a> והמשך לקרוא הסברים למטה."
+        }
+        },
+        {
+        "@type": "Question",
+        "name": "מהי קרן השתלמות וכיצד משתמשים בה במחשבון?",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "קרן השתלמות היא תוכנית חיסכון לטווח בינוני שמיועדת לשכירים ולעצמאים, בה ניתן להפריש סכומים נוספים מעבר לשכר. <strong>ההפרשות לקרן השתלמות אינן מורידות את מס ההכנסה ישירות</strong>, אך מאפשרות חיסכון לטווח בינוני ובטווח הארוך. ההפקדות והצמיחה שלהן פטורות ממס על רווחי ההון בהתאם לחוק. במחשבון ניתן להזין את אחוז ההפרשה לקרן השתלמות כדי לראות את הסכום המופקד. <a href='#employeeForm'>חזור למחשבון</a> והמשך לקרוא הסברים נוספים."
+        }
+        },
+        {
+        "@type": "Question",
+        "name": "האם Netocalc מתאים גם לעצמאים?",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "המחשבון מותאם בעיקר לשכירים אך ניתן להשתמש בו גם לעצמאים כדי להבין את מס הכנסה וביטוח לאומי. <a href='#employeeForm'>למחשבון</a> וראה את ההסברים המלאים למטה."
+        }
+        },
+        {
+        "@type": "Question",
+        "name": "כיצד מחשבים נקודות זיכוי לילדים?",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "המחשבון מחשב נקודות זיכוי לילדים לפי גיל ושנת המס, ומפחית את המס בהתאם. <a href='#employeeForm'>חשב כאן</a> והמשך למטה להסברים נוספים."
+        }
+        },
+        {
+        "@type": "Question",
+        "name": "מהם מדרגות מס ההכנסה לשנת 2025?",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "מדרגות המס מתחילות מ-10% ומגיעות עד 50% בהתאם להכנסה. ניתן לראות את ההשפעה על השכר נטו במחשבון. <a href='#employeeForm'>חזור למחשבון</a> והמשך לקרוא הסברים למטה."
+        }
+        },
+        {
+        "@type": "Question",
+        "name": "איך ליצור קשר עם צוות Netocalc?",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ניתן לשלוח מייל לכל שאלה או הערה לכתובת: <a href='mailto:contact@netocalc.co.il'>contact@netocalc.co.il</a>"
+        }
+        }
+    ]
+    }
+</script>
+
 </head>
 <body>
 
@@ -35,7 +102,6 @@
   <section class="container">
     <h2>ברוכים הבאים ל-Netocalc</h2>
     <p>Netocalc הוא מחשבון מס הכנסה לשכירים בישראל לשנת 2025. האתר מאפשר חישוב שכר נטו חודשי ושנתי, נקודות זיכוי לפי מגדר, ילדים וגילאים, ויצירת דוח PDF עם חישוב המס.</p>
-
     <p>האתר מותאם לגלישה בנייד ומספק תוצאות מהירות וברורות לכל שכיר בישראל.</p>
 
     <h3>יצירת קשר</h3>
@@ -43,15 +109,100 @@
     <a class="email-link" href="mailto:contact@netocalc.co.il">contact@netocalc.co.il</a>
   </section>
 
+  <!-- FAQ Section -->
+    <section class="container faq-section">
+    <h2>שאלות נפוצות</h2>
+
+    <div class="faq-item">
+        <h3>מהו Netocalc ואיך האתר עובד?</h3>
+        <p>Netocalc הוא מחשבון מס הכנסה לשכירים בישראל לשנת 2025. האתר מאפשר לחשב שכר נטו חודשי ושנתי, כולל נקודות זיכוי, פנסיה וקרן השתלמות. 
+        <a href="#employeeForm">חזור למחשבון</a> והמשך לקרוא את ההסברים למטה.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>איך מחשבים את השכר נטו שלי עם Netocalc?</h3>
+        <p>ניתן להזין את השכר הברוטו, נקודות זיכוי, קרן השתלמות וכל הנתונים האישיים כדי לקבל חישוב מדויק של השכר נטו. 
+        <a href="#employeeForm">חשב כאן במחשבון</a> וגלול למטה להסברים נוספים.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>מהן נקודות הזיכוי ואיך הן משפיעות על המס?</h3>
+        <p>נקודות זיכוי מפחיתות את מס ההכנסה בהתאם למצב אישי, גיל, ילדים וסטטוס. ניתן לראות את ההשפעה המדויקת במחשבון. 
+        <a href="#employeeForm">נסה את המחשבון</a> והמשך לקרוא הסברים למטה.</p>
+    </div>
+
+    <div class="faq-item">
+    <h3>מהי קרן השתלמות וכיצד משתמשים בה במחשבון?</h3>
+    <p>קרן השתלמות היא תוכנית חיסכון לטווח בינוני שמיועדת לשכירים ולעצמאים, בה ניתן להפריש סכומים נוספים מעבר לשכר. 
+    <strong>ההפרשות לקרן השתלמות אינן מורידות את מס ההכנסה ישירות</strong>, אך מאפשרות חיסכון לטווח בינוני ובטווח הארוך, ההפקדות והצמיחה שלהן פטורות ממס על רווחי ההון בהתאם לחוק. במחשבון ניתן להזין את אחוז ההפרשה לקרן השתלמות כדי לראות את הסכום המופקד. 
+    <a href="#employeeForm">חזור למחשבון</a> והמשך לקרוא הסברים נוספים.</p>
+    </div>
+
+
+
+    <div class="faq-item">
+        <h3>האם Netocalc מתאים גם לעצמאים?</h3>
+        <p>המחשבון מותאם בעיקר לשכירים אך ניתן להשתמש בו גם לעצמאים כדי להבין את מס הכנסה וביטוח לאומי. 
+        <a href="#employeeForm">למחשבון</a> וראה את ההסברים המלאים למטה.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>כיצד מחשבים נקודות זיכוי לילדים?</h3>
+        <p>המחשבון מחשב נקודות זיכוי לילדים לפי גיל ושנת המס, ומפחית את המס בהתאם. 
+        <a href="#employeeForm">חשב כאן</a> והמשך למטה להסברים נוספים.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>מהם מדרגות מס ההכנסה לשנת 2025?</h3>
+        <p>מדרגות המס מתחילות מ-10% ומגיעות עד 50% בהתאם להכנסה. ניתן לראות את ההשפעה על השכר נטו במחשבון. 
+        <a href="#employeeForm">חזור למחשבון</a> והמשך לקרוא הסברים למטה.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>איך ליצור קשר עם צוות Netocalc?</h3>
+        <p>ניתן לשלוח מייל לכל שאלה או הערה לכתובת: <a href="mailto:contact@netocalc.co.il">contact@netocalc.co.il</a></p>
+    </div>
+
+    </section>
+
+
+
   <!-- ניווט חזרה למחשבון -->
   <section class="container" style="margin-top:30px;">
-    <a href="index.html" style="padding:10px 20px; background:#1E88E5; color:white; text-decoration:none; border-radius:5px;">חזרה למחשבון</a>
+    <a href="index.html" class="back-to-calculator">חזרה למחשבון</a>
   </section>
 
   <!-- Footer -->
-  <footer class="container" style="margin-top:40px; font-size:0.9rem; color:#555;">
-    <p>&copy; 2025 כל הזכויות שמורות</p>
-  </footer>
+<footer>
+  <p>תעזור לחברים לחשב את הנטו במהירות!</p>
+  <!-- כפתורי שיתוף -->
+  <div id="share-buttons" style="text-align:center; margin-top:20px;">
+    <a id="whatsapp-share" target="_blank" style="margin-right:10px;">
+      <img src="images/whatsapp-icon.png" alt="שתף בוואטסאפ" width="40">
+    </a>
+
+    <a id="telegram-share" target="_blank" style="margin-right:10px;">
+      <img src="images/telegram-icon.png" alt="שתף בטלגרם" width="40">
+    </a>
+
+    <a id="facebook-share" target="_blank" style="margin-right:10px;">
+      <img src="images/facebook-icon.png" alt="שתף בפייסבוק" width="40">
+    </a>
+
+    <a id="twitter-share" target="_blank">
+      <img src="images/X-icon.png" alt="שתף בטוויטר" width="40">
+    </a>
+  </div>
+
+  <!-- כתובת מייל -->
+  <p>ליצירת קשר: <a href="mailto:contact@netocalc.co.il">contact@netocalc.co.il</a></p>
+
+  <!-- קישור לעמוד צור קשר -->
+  <p><a href="index.html"> למחשבון</a></p>
+
+  <!-- זכויות יוצרים -->
+  <p class="copyright">&copy; 2025 כל הזכויות שמורות</p>
+</footer>
 
 </body>
 </html>
