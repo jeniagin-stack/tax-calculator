@@ -129,3 +129,23 @@ a.email-link:hover {
 .back-to-calculator:hover {
   background: #1565C0;
 }
+
+.site-logo {
+  max-width: 180px;     /* גודל מקסימלי על מסך גדול */
+  height: auto;         /* שומר על יחס גובה-רוחב */
+  width: 100%;          /* מאפשר לתמונה להתכווץ במסכים קטנים */
+  display: block;
+}
+
+/* עיצוב רספונסיבי לפי גדלי מסך */
+@media (max-width: 768px) {
+  .site-logo {
+    max-width: 140px;   /* מקטין את הלוגו בטאבלט */
+  }
+}
+
+@media (max-width: 480px) {
+  .site-logo {
+    max-width: 110px;   /* מקטין עוד יותר במובייל */
+  }
+}
