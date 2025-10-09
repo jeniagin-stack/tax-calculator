@@ -338,19 +338,19 @@
   <p>תעזור לחברים לחשב את הנטו במהירות!</p>
   <!-- כפתורי שיתוף -->
   <div id="share-buttons" style="text-align:center; margin-top:20px;">
-    <a id="whatsapp-share" target="_blank" style="margin-right:10px;">
+    <a id="whatsapp-share" target="_blank" rel="noopener noreferrer" style="margin-right:10px;">
       <img src="images/whatsapp-icon.png" alt="שתף בוואטסאפ" width="40">
     </a>
 
-    <a id="telegram-share" target="_blank" style="margin-right:10px;">
+    <a id="telegram-share" target="_blank" rel="noopener noreferrer" style="margin-right:10px;">
       <img src="images/telegram-icon.png" alt="שתף בטלגרם" width="40">
     </a>
 
-    <a id="facebook-share" target="_blank" style="margin-right:10px;">
+    <a id="facebook-share" target="_blank" rel="noopener noreferrer" style="margin-right:10px;">
       <img src="images/facebook-icon.png" alt="שתף בפייסבוק" width="40">
     </a>
 
-    <a id="twitter-share" target="_blank">
+    <a id="twitter-share" rel="noopener noreferrer" target="_blank">
       <img src="images/X-icon.png" alt="שתף בטוויטר" width="40">
     </a>
   </div>
@@ -366,18 +366,18 @@
 </footer>
 
   <!-- jsPDF -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
   <!-- jsPDF AutoTable אם רוצים טבלאות -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js" defer></script>
   <!-- הפונטים -->
-  <script src="Fonts/Fonts.js"></script>
+  <script src="Fonts/Fonts.js" defer></script>
   <!-- הסקריפט שלנו -->
   <!-- טעינת fonts.js כ-module שמייצא את DavidRegular -->
-  <script type="module" src="js/pdfGenerator.js"></script>
+  <script type="module" src="js/pdfGenerator.js" defer></script>
   <script src="js/config.js"></script>
   <script src="js/calculator.js"></script>
-  <script src="js/pie.js"></script>
-  <script src="js/share.js"></script>
+  <script src="js/pie.js" defer></script>
+  <script src="js/share.js" defer></script>
 
 </body>
 </html>
