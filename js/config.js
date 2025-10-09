@@ -1,271 +1,151 @@
-const TAX_CONFIG = {
-  2020: {
-    employee: {
-      CREDIT_VALUE: 219,
-      TAX_BRACKETS: [
-        { min: 0, max: 6450, rate: 0.10 },
-        { min: 6451, max: 9240, rate: 0.14 },
-        { min: 9241, max: 14840, rate: 0.20 },
-        { min: 14841, max: 20620, rate: 0.31 },
-        { min: 20621, max: 42910, rate: 0.35 },
-        { min: 42911, max: 55270, rate: 0.47 },
-        { min: 55271, max: Infinity, rate: 0.50 }
-      ],
-      SOCIAL_BRACKETS: [
-        { min: 0, max: 6331, rate: 0.0035 },
-        { min: 6332, max: Infinity, rate: 0.07 }
-      ],
-      HEALTH_BRACKETS: [
-        { min: 0, max: 6331, rate: 0.031 },
-        { min: 6332, max: Infinity, rate: 0.05 }
-      ],
-      PENSION_RATE: 0.06
+document.addEventListener("DOMContentLoaded", () => {
+  // TAX_CONFIG 2020–2025 — נתונים מעודכנים, אחידים לכל השנים
+  const TAX_CONFIG = {
+    "2020": {
+      employee: {
+        CREDIT_VALUE: 219,
+        TAX_BRACKETS: [
+          { min: 0, max: 6330, rate: 0.10 },
+          { min: 6331, max: 9080, rate: 0.14 },
+          { min: 9081, max: 14580, rate: 0.20 },
+          { min: 14581, max: 20260, rate: 0.31 },
+          { min: 20261, max: 42160, rate: 0.35 },
+          { min: 42161, max: 54300, rate: 0.47 },
+          { min: 54301, max: Infinity, rate: 0.50 }
+        ],
+        SOCIAL_BRACKETS: [
+          { min: 0, max: 6330, rate: 0.004 },
+          { min: 6331, max: 44020, rate: 0.07 }
+        ],
+        HEALTH_BRACKETS: [
+          { min: 0, max: 6330, rate: 0.031 },
+          { min: 6331, max: 44020, rate: 0.05 }
+        ],
+        PENSION_RATE: 0.06,
+        PENSION_MAX_CREDIT_MONTHLY: 600
+      }
     },
-    freelance: {
-      CREDIT_VALUE: 218,
-      TAX_BRACKETS: [
-        { min: 0, max: 6450, rate: 0.10 },
-        { min: 6451, max: 9240, rate: 0.14 },
-        { min: 9241, max: 14840, rate: 0.20 },
-        { min: 14841, max: 20620, rate: 0.31 },
-        { min: 20621, max: 42910, rate: 0.35 },
-        { min: 42911, max: 55270, rate: 0.47 },
-        { min: 55271, max: Infinity, rate: 0.50 }
-      ],
-      SOCIAL_BRACKETS: [
-        { min: 0, max: 6331, rate: 0.0525 },
-        { min: 6332, max: Infinity, rate: 0.175 }
-      ],
-      HEALTH_BRACKETS: [
-        { min: 0, max: 6331, rate: 0.031 },
-        { min: 6332, max: Infinity, rate: 0.05 }
-      ],
-      PENSION_RATE: 0.06
+    "2021": {
+      employee: {
+        CREDIT_VALUE: 224,
+        TAX_BRACKETS: [
+          { min: 0, max: 6290, rate: 0.10 },
+          { min: 6291, max: 9030, rate: 0.14 },
+          { min: 9031, max: 14490, rate: 0.20 },
+          { min: 14491, max: 20140, rate: 0.31 },
+          { min: 20141, max: 41910, rate: 0.35 },
+          { min: 41911, max: 53970, rate: 0.47 },
+          { min: 53971, max: Infinity, rate: 0.50 }
+        ],
+        SOCIAL_BRACKETS: [
+          { min: 0, max: 6330, rate: 0.004 },
+          { min: 6331, max: 44020, rate: 0.07 }
+        ],
+        HEALTH_BRACKETS: [
+          { min: 0, max: 6330, rate: 0.031 },
+          { min: 6331, max: 44020, rate: 0.0517 }
+        ],
+        PENSION_RATE: 0.06,
+        PENSION_MAX_CREDIT_MONTHLY: 650
+      }
+    },
+    "2022": {
+      employee: {
+        CREDIT_VALUE: 232,
+        TAX_BRACKETS: [
+          { min: 0, max: 6450, rate: 0.10 },
+          { min: 6451, max: 9240, rate: 0.14 },
+          { min: 9241, max: 14840, rate: 0.20 },
+          { min: 14841, max: 20620, rate: 0.31 },
+          { min: 20621, max: 42910, rate: 0.35 },
+          { min: 42911, max: 55270, rate: 0.47 },
+          { min: 55271, max: Infinity, rate: 0.50 }
+        ],
+        SOCIAL_BRACKETS: [
+          { min: 0, max: 7000, rate: 0.004 },
+          { min: 7001, max: 50000, rate: 0.07 }
+        ],
+        HEALTH_BRACKETS: [
+          { min: 0, max: 7000, rate: 0.031 },
+          { min: 7001, max: 50000, rate: 0.0517 }
+        ],
+        PENSION_RATE: 0.06,
+        PENSION_MAX_CREDIT_MONTHLY: 700
+      }
+    },
+    "2023": {
+      employee: {
+        CREDIT_VALUE: 236,
+        TAX_BRACKETS: [
+          { min: 0, max: 6790, rate: 0.10 },
+          { min: 6791, max: 9730, rate: 0.14 },
+          { min: 9731, max: 15620, rate: 0.20 },
+          { min: 15621, max: 21710, rate: 0.31 },
+          { min: 21711, max: 45180, rate: 0.35 },
+          { min: 45181, max: 58190, rate: 0.47 },
+          { min: 58191, max: Infinity, rate: 0.50 }
+        ],
+        SOCIAL_BRACKETS: [
+          { min: 0, max: 7350, rate: 0.004 },
+          { min: 7351, max: 52000, rate: 0.07 }
+        ],
+        HEALTH_BRACKETS: [
+          { min: 0, max: 7350, rate: 0.031 },
+          { min: 7351, max: 52000, rate: 0.0517 }
+        ],
+        PENSION_RATE: 0.06,
+        PENSION_MAX_CREDIT_MONTHLY: 730
+      }
+    },
+    "2024": {
+      employee: {
+        CREDIT_VALUE: 242,
+        TAX_BRACKETS: [
+          { min: 0, max: 7010, rate: 0.10 },
+          { min: 7011, max: 10060, rate: 0.14 },
+          { min: 10061, max: 16150, rate: 0.20 },
+          { min: 16151, max: 22440, rate: 0.31 },
+          { min: 22441, max: 46690, rate: 0.35 },
+          { min: 46691, max: 60130, rate: 0.47 },
+          { min: 60131, max: Infinity, rate: 0.50 }
+        ],
+        SOCIAL_BRACKETS: [
+          { min: 0, max: 7522, rate: 0.0427 },
+          { min: 7523, max: 50695, rate: 0.1217 }
+        ],
+        HEALTH_BRACKETS: [
+          { min: 0, max: 7522, rate: 0.0323 },
+          { min: 7523, max: 50695, rate: 0.0517 }
+        ],
+        PENSION_RATE: 0.06,
+        PENSION_MAX_CREDIT_MONTHLY: 764
+      }
+    },
+    "2025": {
+      employee: {
+        CREDIT_VALUE: 242,
+        TAX_BRACKETS: [
+          { min: 0, max: 7010, rate: 0.10 },
+          { min: 7011, max: 10060, rate: 0.14 },
+          { min: 10061, max: 16150, rate: 0.20 },
+          { min: 16151, max: 22440, rate: 0.31 },
+          { min: 22441, max: 46690, rate: 0.35 },
+          { min: 46691, max: 60130, rate: 0.47 },
+          { min: 60131, max: Infinity, rate: 0.50 }
+        ],
+        SOCIAL_BRACKETS: [
+          { min: 0, max: 7522, rate: 0.0427 },
+          { min: 7523, max: 50695, rate: 0.1217 }
+        ],
+        HEALTH_BRACKETS: [
+          { min: 0, max: 7522, rate: 0.0323 },
+          { min: 7523, max: 50695, rate: 0.0517 }
+        ],
+        PENSION_RATE: 0.06,
+        PENSION_MAX_CREDIT_MONTHLY: 764
+      }
     }
-  },
+  };
 
-  2021: {
-    employee: {
-      CREDIT_VALUE: 218,
-      TAX_BRACKETS: [
-        { min: 0, max: 6450, rate: 0.10 },
-        { min: 6451, max: 9240, rate: 0.14 },
-        { min: 9241, max: 14840, rate: 0.20 },
-        { min: 14841, max: 20620, rate: 0.31 },
-        { min: 20621, max: 42910, rate: 0.35 },
-        { min: 42911, max: 55270, rate: 0.47 },
-        { min: 55271, max: Infinity, rate: 0.50 }
-      ],
-      SOCIAL_BRACKETS: [
-        { min: 0, max: 6331, rate: 0.0035 },
-        { min: 6332, max: Infinity, rate: 0.07 }
-      ],
-      HEALTH_BRACKETS: [
-        { min: 0, max: 6331, rate: 0.031 },
-        { min: 6332, max: Infinity, rate: 0.05 }
-      ],
-      PENSION_RATE: 0.06
-    },
-    freelance: {
-      CREDIT_VALUE: 223,
-      TAX_BRACKETS: [
-        { min: 0, max: 6450, rate: 0.10 },
-        { min: 6451, max: 9240, rate: 0.14 },
-        { min: 9241, max: 14840, rate: 0.20 },
-        { min: 14841, max: 20620, rate: 0.31 },
-        { min: 20621, max: 42910, rate: 0.35 },
-        { min: 42911, max: 55270, rate: 0.47 },
-        { min: 55271, max: Infinity, rate: 0.50 }
-      ],
-      SOCIAL_BRACKETS: [
-        { min: 0, max: 6331, rate: 0.0525 },
-        { min: 6332, max: Infinity, rate: 0.175 }
-      ],
-      HEALTH_BRACKETS: [
-        { min: 0, max: 6331, rate: 0.031 },
-        { min: 6332, max: Infinity, rate: 0.05 }
-      ],
-      PENSION_RATE: 0.06
-    }
-  },
+});
 
-  2022: {
-    employee: {
-      CREDIT_VALUE: 223,
-      TAX_BRACKETS: [
-        { min: 0, max: 6540, rate: 0.10 },
-        { min: 6541, max: 9360, rate: 0.14 },
-        { min: 9361, max: 15070, rate: 0.20 },
-        { min: 15071, max: 20960, rate: 0.31 },
-        { min: 20961, max: 43250, rate: 0.35 },
-        { min: 43251, max: 55970, rate: 0.47 },
-        { min: 55971, max: Infinity, rate: 0.50 }
-      ],
-      SOCIAL_BRACKETS: [
-        { min: 0, max: 6450, rate: 0.0035 },
-        { min: 6451, max: Infinity, rate: 0.07 }
-      ],
-      HEALTH_BRACKETS: [
-        { min: 0, max: 6450, rate: 0.031 },
-        { min: 6451, max: Infinity, rate: 0.05 }
-      ],
-      PENSION_RATE: 0.06
-    },
-    freelance: {
-      CREDIT_VALUE: 231,
-      TAX_BRACKETS: [
-        { min: 0, max: 6540, rate: 0.10 },
-        { min: 6541, max: 9360, rate: 0.14 },
-        { min: 9361, max: 15070, rate: 0.20 },
-        { min: 15071, max: 20960, rate: 0.31 },
-        { min: 20961, max: 43250, rate: 0.35 },
-        { min: 43251, max: 55970, rate: 0.47 },
-        { min: 55971, max: Infinity, rate: 0.50 }
-      ],
-      SOCIAL_BRACKETS: [
-        { min: 0, max: 6450, rate: 0.0525 },
-        { min: 6451, max: Infinity, rate: 0.175 }
-      ],
-      HEALTH_BRACKETS: [
-        { min: 0, max: 6450, rate: 0.031 },
-        { min: 6451, max: Infinity, rate: 0.05 }
-      ],
-      PENSION_RATE: 0.06
-    }
-  },
-
-  2023: {
-    employee: {
-      CREDIT_VALUE: 235,
-      TAX_BRACKETS: [
-        { min: 0, max: 6630, rate: 0.10 },
-        { min: 6631, max: 9480, rate: 0.14 },
-        { min: 9481, max: 15290, rate: 0.20 },
-        { min: 15291, max: 21260, rate: 0.31 },
-        { min: 21261, max: 44520, rate: 0.35 },
-        { min: 44521, max: 57490, rate: 0.47 },
-        { min: 57491, max: Infinity, rate: 0.50 }
-      ],
-      SOCIAL_BRACKETS: [
-        { min: 0, max: 6710, rate: 0.0035 },
-        { min: 6711, max: Infinity, rate: 0.07 }
-      ],
-      HEALTH_BRACKETS: [
-        { min: 0, max: 6710, rate: 0.031 },
-        { min: 6711, max: Infinity, rate: 0.05 }
-      ],
-      PENSION_RATE: 0.06
-    },
-    freelance: {
-      CREDIT_VALUE: 235,
-      TAX_BRACKETS: [
-        { min: 0, max: 6630, rate: 0.10 },
-        { min: 6631, max: 9480, rate: 0.14 },
-        { min: 9481, max: 15290, rate: 0.20 },
-        { min: 15291, max: 21260, rate: 0.31 },
-        { min: 21261, max: 44520, rate: 0.35 },
-        { min: 44521, max: 57490, rate: 0.47 },
-        { min: 57491, max: Infinity, rate: 0.50 }
-      ],
-      SOCIAL_BRACKETS: [
-        { min: 0, max: 6710, rate: 0.0525 },
-        { min: 6711, max: Infinity, rate: 0.175 }
-      ],
-      HEALTH_BRACKETS: [
-        { min: 0, max: 6710, rate: 0.031 },
-        { min: 6711, max: Infinity, rate: 0.05 }
-      ],
-      PENSION_RATE: 0.06
-    }
-  },
-
-  2024: {
-    employee: {
-      CREDIT_VALUE: 242,
-      TAX_BRACKETS: [
-        { min: 0, max: 6870, rate: 0.10 },
-        { min: 6871, max: 9860, rate: 0.14 },
-        { min: 9861, max: 15900, rate: 0.20 },
-        { min: 15901, max: 22180, rate: 0.31 },
-        { min: 22181, max: 46120, rate: 0.35 },
-        { min: 46121, max: 59520, rate: 0.47 },
-        { min: 59521, max: Infinity, rate: 0.50 }
-      ],
-      SOCIAL_BRACKETS: [
-        { min: 0, max: 6950, rate: 0.0035 },
-        { min: 6951, max: Infinity, rate: 0.07 }
-      ],
-      HEALTH_BRACKETS: [
-        { min: 0, max: 6950, rate: 0.031 },
-        { min: 6951, max: Infinity, rate: 0.05 }
-      ],
-      PENSION_RATE: 0.06
-    },
-    freelance: {
-      CREDIT_VALUE: 235,
-      TAX_BRACKETS: [
-        { min: 0, max: 6870, rate: 0.10 },
-        { min: 6871, max: 9860, rate: 0.14 },
-        { min: 9861, max: 15900, rate: 0.20 },
-        { min: 15901, max: 22180, rate: 0.31 },
-        { min: 22181, max: 46120, rate: 0.35 },
-        { min: 46121, max: 59520, rate: 0.47 },
-        { min: 59521, max: Infinity, rate: 0.50 }
-      ],
-      SOCIAL_BRACKETS: [
-        { min: 0, max: 6950, rate: 0.0525 },
-        { min: 6951, max: Infinity, rate: 0.175 }
-      ],
-      HEALTH_BRACKETS: [
-        { min: 0, max: 6950, rate: 0.031 },
-        { min: 6951, max: Infinity, rate: 0.05 }
-      ],
-      PENSION_RATE: 0.06
-    }
-  },
-
-  2025: {
-    employee: {
-      CREDIT_VALUE: 242,
-      TAX_BRACKETS: [
-        { min: 0, max: 7010, rate: 0.10 },
-        { min: 7011, max: 10060, rate: 0.14 },
-        { min: 10061, max: 16150, rate: 0.20 },
-        { min: 16151, max: 22440, rate: 0.31 },
-        { min: 22441, max: 46690, rate: 0.35 },
-        { min: 46691, max: 60130, rate: 0.47 },
-        { min: 60131, max: Infinity, rate: 0.50 }
-      ],
-      SOCIAL_BRACKETS: [
-        { min: 0, max: 7030, rate: 0.0035 },
-        { min: 7031, max: Infinity, rate: 0.07 }
-      ],
-      HEALTH_BRACKETS: [
-        { min: 0, max: 7030, rate: 0.031 },
-        { min: 7031, max: Infinity, rate: 0.05 }
-      ],
-      PENSION_RATE: 0.06
-    },
-    freelance: {
-      CREDIT_VALUE: 235,
-      TAX_BRACKETS: [
-        { min: 0, max: 7010, rate: 0.10 },
-        { min: 7011, max: 10060, rate: 0.14 },
-        { min: 10061, max: 16150, rate: 0.20 },
-        { min: 16151, max: 22440, rate: 0.31 },
-        { min: 22441, max: 46690, rate: 0.35 },
-        { min: 46691, max: 60130, rate: 0.47 },
-        { min: 60131, max: Infinity, rate: 0.50 }
-      ],
-      SOCIAL_BRACKETS: [
-        { min: 0, max: 7030, rate: 0.0525 },
-        { min: 7031, max: Infinity, rate: 0.175 }
-      ],
-      HEALTH_BRACKETS: [
-        { min: 0, max: 7030, rate: 0.031 },
-        { min: 7031, max: Infinity, rate: 0.05 }
-      ],
-      PENSION_RATE: 0.06
-    }
-  }
-};
