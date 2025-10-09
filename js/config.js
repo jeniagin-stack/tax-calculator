@@ -121,30 +121,31 @@ document.addEventListener("DOMContentLoaded", () => {
         PENSION_MAX_CREDIT_MONTHLY: 764
       }
     },
-    "2025": {
-      employee: {
-        CREDIT_VALUE: 242,
-        TAX_BRACKETS: [
-          { min: 0, max: 7010, rate: 0.10 },
-          { min: 7011, max: 10060, rate: 0.14 },
-          { min: 10061, max: 16150, rate: 0.20 },
-          { min: 16151, max: 22440, rate: 0.31 },
-          { min: 22441, max: 46690, rate: 0.35 },
-          { min: 46691, max: 60130, rate: 0.47 },
-          { min: 60131, max: Infinity, rate: 0.50 }
-        ],
-        SOCIAL_BRACKETS: [
-          { min: 0, max: 7522, rate: 0.0427 },
-          { min: 7523, max: 50695, rate: 0.1217 }
-        ],
-        HEALTH_BRACKETS: [
-          { min: 0, max: 7522, rate: 0.0323 },
-          { min: 7523, max: 50695, rate: 0.0517 }
-        ],
-        PENSION_RATE: 0.06,
-        PENSION_MAX_CREDIT_MONTHLY: 764
-      }
+  "2025": {
+    employee: {
+      CREDIT_VALUE: 242,
+      TAX_BRACKETS: [
+        { min: 0,     max: 7010,  rate: 0.10 },
+        { min: 7010,  max: 10060, rate: 0.14 },
+        { min: 10060, max: 16150, rate: 0.20 },
+        { min: 16150, max: 22440, rate: 0.31 },
+        { min: 22440, max: 46690, rate: 0.35 },
+        { min: 46690, max: 60130, rate: 0.47 },
+        { min: 60130, max: Infinity, rate: 0.50 }
+      ],
+      // === NOTA BENE: these are NATIONAL INSURANCE (employee only) rates ===
+      SOCIAL_BRACKETS: [
+        { min: 0,     max: 7522,  rate: 0.0104 },  // 1.04% (national only)
+        { min: 7522,  max: 50695, rate: 0.07 }     // 7% (national only) for above
+      ],
+      HEALTH_BRACKETS: [
+        { min: 0,     max: 7522,  rate: 0.0323 },  // 3.23% (health)
+        { min: 7522,  max: 50695, rate: 0.0517 }   // 5.17% (health)
+      ],
+      PENSION_RATE: 0.06,
+      PENSION_MAX_CREDIT_MONTHLY: 679
     }
+  }
   };
 
 });
