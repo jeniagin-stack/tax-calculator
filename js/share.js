@@ -1,3 +1,5 @@
+document.addEventListener("DOMContentLoaded", () => {
+  // כל הקוד בקובץ
 // ====== הגדרות שיתוף ======
 const shareText = "גלה כמה באמת מגיע לך בנטו – מחשבון מס הכנסה מהיר ופשוט!";
 const shareURL = "https://netocalc.co.il/";
@@ -22,3 +24,7 @@ document.getElementById("facebook-share").href =
 // ====== טוויטר ======
 document.getElementById("twitter-share").href =
   `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareURL)}`;
+
+});
+
+
