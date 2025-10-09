@@ -183,57 +183,47 @@ document.addEventListener("DOMContentLoaded", function() {
     // 5️⃣ פונקציות חישוב
     // ============================
     function calculateTax(salary, credits, taxBrackets, creditValue, pensionRate, pensionMaxCreditMonthly) {
-         // שלב 1: חישוב ההפרשה של העובד לפנסיה
+        // 1. הפרשת העובד (חודשי)
         const employeePension = salary * pensionRate;
 
-        // שלב 2: חישוב החלקים המוכרים במס
-        // לפי החוק — עד תקרה מסוימת:
+        // 2. סכום מזכה לזיכוי (עד תקרה חודשית) - ל-2025 התקרה היא 679 ש"ח
         const pensionRecognized = Math.min(employeePension, pensionMaxCreditMonthly);
 
-        // חצי מההפרשה נחשבת לניכוי מההכנסה החייבת
-        const deductiblePart = pensionRecognized * 0.5
+        // 3. זיכוי מס לשכיר — 35% מהסכום המזוכה
+        const pensionCredit = Math.round(pensionRecognized * 0.35 * 100) / 100;
 
-        // החצי השני נחשב לזיכוי ממס (35% ממנו)
-         const pensionCredit = (pensionRecognized * 0.5) * 0.35;
+        // 4. חישוב מס גולמי לפי מדרגות על ההכנסה החודשית (שלא כוללת הורדה אוטומטית של הפרשה)
+        const taxableSalary = salary; // לא להוריד את employeePension כאן עבור חישוב שכיר רגיל
+        let grossTax = 0;
 
-        // שלב 3: מחשבים את ההכנסה החייבת לאחר ניכוי
-        const taxableSalary = salary - deductiblePart;
-
-        // שלב 4: חישוב המס לפי מדרגות
-        let remaining = taxableSalary;
-        let tax = 0;
-
-        for (let bracket of taxBrackets) {
-            if (taxableSalary > bracket.min) {
-                const width = bracket.max === Infinity ? remaining : (bracket.max - bracket.min);
-                const taxable = Math.min(remaining, width);
-                tax += taxable * bracket.rate;
-                remaining -= taxable;
-                if (remaining <= 0) break;
-            }
+        for (const bracket of taxBrackets) {
+            if (taxableSalary <= bracket.min) continue;
+            const upper = (bracket.max === Infinity) ? taxableSalary : Math.min(taxableSalary, bracket.max);
+            const taxableInBracket = Math.max(0, upper - bracket.min);
+            grossTax += taxableInBracket * bracket.rate;
         }
-        // שלב 5: הפחתת נקודות זיכוי
-        tax -= credits * creditValue;
-        // שלב 6: הפחתת זיכוי על ההפרשה לפנסיה
-        tax -= pensionCredit;
 
-        // שלב 7: הגנה ממס שלילי
-        if (tax < 0) tax = 0;
-        return tax;
+        // 5. הורדת נקודות זיכוי ואז זיכוי פנסיה
+        const creditsValue = credits * creditValue;
+        let finalTax = grossTax - creditsValue - pensionCredit;
+
+        // 6. הגנה ממס שלילי ועיגול לסכום שקלים-אגורות
+        if (finalTax < 0) finalTax = 0;
+        return Math.round(finalTax * 100) / 100;
     }
+
 
     function calculateContribution(salary, brackets) {
-        let remaining = salary;
-        let contrib = 0;
-        for (let bracket of brackets) {
-            if (remaining <= 0) break;
-            const width = bracket.max === Infinity ? remaining : (bracket.max - bracket.min);
-            const taxable = Math.min(remaining, width);
-            contrib += taxable * bracket.rate;
-            remaining -= taxable;
-        }
-        return Math.round(contrib * 100) / 100;
+    let contrib = 0;
+    for (const bracket of brackets) {
+        if (salary <= bracket.min) continue;
+        const upper = bracket.max === Infinity ? salary : Math.min(salary, bracket.max);
+        const taxableInBracket = Math.max(0, upper - bracket.min);
+        contrib += taxableInBracket * bracket.rate;
     }
+    return Math.round(contrib * 100) / 100;
+    }
+
 
     function calculatePension(salary, pensionRate, pensionMaxCreditMonthly) {
         let pension = salary * pensionRate;
