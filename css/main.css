@@ -138,7 +138,7 @@ p {
   align-items: flex-start;
   gap: 20px;
   flex-wrap: wrap;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .results-wrapper,
@@ -151,7 +151,7 @@ p {
   flex-wrap: wrap;
   gap: 15px;
   justify-content: center;
-  margin-top: 15px;
+  margin-top: 5px;
 }
 
 .result-card {
@@ -244,7 +244,8 @@ p {
 
 #tax-info p,
 #tax-credits p,
-#tax-tips p {
+#tax-tips p,
+#credits-2025 p {
   text-align: center;
   color: #555;
   line-height: 1.6;
@@ -309,7 +310,9 @@ p {
 =============================== */
 #tax-info ul,
 #tax-credits ul,
-#tax-tips ul {
+#tax-tips ul,
+#credits-2025 ul
+ {
   color: #555;
   line-height: 1.6;
   padding-left: 0;
@@ -324,14 +327,17 @@ p {
 }
 
 #tax-info ul li,
-#tax-credits ul li {
+#tax-credits ul li,
+#credits-2025 ul li {
   position: relative;
   padding-left: 30px;
   margin-bottom: 10px;
 }
 
 #tax-info ul li::before,
-#tax-credits ul li::before {
+#tax-credits ul li::before,
+#credits-2025 ul li::before
+ {
   content: "";
   position: absolute;
   left: 0;
@@ -339,7 +345,6 @@ p {
   transform: translateY(-50%);
   width: 20px;
   height: 20px;
-  background-image: url('icon.png');
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -363,7 +368,8 @@ p {
 =============================== */
 #tax-info a,
 #tax-credits a,
-#tax-tips a {
+#tax-tips a,
+#credits-2025 a {
   color: #3498db;
   text-decoration: underline;
 }
@@ -444,6 +450,7 @@ footer {
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
+  margin-top: 10px;
 }
 
 footer .share-text {
@@ -511,12 +518,7 @@ footer .copyright {
   text-align: center;
 }
 
-#credits-2025 p {
-  text-align: center;
-  margin-bottom: 10px;
-  font-size: 1rem;
-  color: #555;
-}
+
 
 #credits-2025 table {
   width: 100%;
