@@ -47,6 +47,8 @@
   <meta name="twitter:creator" content="@netocalc">
 
   <!-- Fonts & CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/employee.css">
@@ -77,7 +79,8 @@
         <a href="#tax-tips">טיפים חשובים</a> | 
         <a href="#tax-info">מדרגות מס </a> | 
         <a href="#tax-credits">נקודות זיכוי</a> |
-        <a href="#credits-2025">נקודות זיכוי ילדים</a>
+        <a href="#credits-2025">נקודות זיכוי ילדים</a> |
+        <a href="about.html">מי אנחנו</a>
         
       </nav>
     </div>
@@ -171,7 +174,7 @@
     </div> <!-- סגירת form-wrapper -->
   </section> <!-- סגירת employeeForm -->
 
-<div id="results-section" class="results-container">
+<div id="results-section" class="results-container" aria-live="polite">
     <!-- Buttons row: affiliate | generate PDF | tips -->
      <div class="action-row" role="region" aria-label="פעולות מהירות">
 
@@ -228,22 +231,42 @@
 <p > ברוכים הבאים ל־<strong>מחשבון נטו 2025</strong> של Netocalc – הכלי הפשוט והמדויק ביותר ל־<strong>חישוב מס הכנסה לשכירים</strong> בישראל.
   המחשבון מאפשר לחשב את השכר נטו החודשי או השנתי שלך, כולל חישוב נקודות זיכוי לפי מגדר, גיל וכמות ילדים,בנוסף המחשבון מאפשרות להפיק דוח PDF מפורט.
 </p>
+
 <!-- ============================
-     טיפים נוספים להורדת מס
+     טיפים נוספים להורדת מס (תיקון מדויק)
 ============================ -->
 <section id="tax-tips" style="display: none;">
-  <h3>💡טיפים להורדת מס💡</h3>
+  <h2>💡 טיפים מעשיים להקטנת מס הכנסה (פשוט ויעיל) 💡</h2>
   <ul>
     <li>
       <img src="images/idea-icon.png" alt="טיפ מס הכנסה" class="tip-icon">
-      וודא שטופס 101 שאתה מגיש למעסיק מלא עם כל הפרטים האישיים והמשפחתיים – כך כל נקודות הזיכוי שאתה זכאי להן יתקבלו .
+      מלא את טופס 101 עם כל העדכונים (מצב משפחתי, ילדים, לימודים) בתחילת כל שנה ובמקרה של שינוי — זה משפיע מיד על חישוב הניכויים ותלוש השכר. 
     </li>
-    <li><img src="images/idea-icon.png" alt="טיפ מס הכנסה" class="tip-icon"> הפקדות לקרנות פנסיה והשתלמות מפחיתות את ההכנסה החייבת במס.</li>
+    <li>
+      <img src="images/idea-icon.png" alt="טיפ מס הכנסה" class="tip-icon">
+      בדוק כמה נקודות זיכוי מגיעות לך — יש הסבר קצר ב־<a href="#tax-credits">נקודות זיכוי</a> באתר.
+    </li>
+    <li>
+      <img src="images/idea-icon.png" alt="טיפ מס הכנסה" class="tip-icon">
+      בדוק אם מגיע לך החזר מס על השנים הקודמות (ניתן לבקש החזר עד 6 שנים אחורה) — השתמש בסימולטור או הגש טופס החזר דרך רשות המסים.
+    </li>
+    <li>
+      <img src="images/idea-icon.png" alt="טיפ מס הכנסה" class="tip-icon">
+      שמור קבלות על תרומות למוסדות מוכרים — תרומות מזכות בהטבת מס (בתנאים ובתקרות שמפורסמות ברשות המסים).
+    </li>
+    <li>
+      <img src="images/idea-icon.png" alt="טיפ מס הכנסה" class="tip-icon">
+      שים לב: **הפקדות לקרן השתלמות אינן ניכוי ישיר ממס הכנסה** כמו הקטנת ההכנסה החייבת — יש להן כללי מס משלהן בנושא ניכוי/פטור ומשיכת כספים; לגבי הפקדות לפנסיה ולטיפולים בדוק את ההטבות הספציפיות החלות עליך.
+    </li>
   </ul>
+
   <p style="text-align:center; margin-top:20px;">
-    למידע נוסף, בקרו באתר 
-    <a href="https://www.gov.il/he/departments/topics/income_tax_israel_tax_authority/govil-landing-page" target="_blank" rel="noopener noreferrer">רשות המסים</a>.
+    למידע נוסף על <strong>הטבות מס, נקודות זיכוי והחזרי מס לשכירים</strong>, בקרו באתר 
+    <a href="https://www.gov.il/he/departments/topics/income_tax_israel_tax_authority/govil-landing-page" target="_blank" rel="noopener noreferrer">
+      רשות המסים בישראל
+    </a>.
   </p>
+  
 </section>
 
 
@@ -294,33 +317,112 @@
   <p>נקודות זיכויי מפחיתות את מס הכנסה שתשלם.</p>
   <p>  כל נקודה מזכה בסכום של <strong>242 ₪ לחודש</strong> (2,904 ₪ בשנה).</p>
   <div class="table-wrapper">
-    <table>
-      <thead>
-        <tr>
-          <th>קריטריון זכאות</th>
-          <th>מספר נקודות</th>
-          <th>ערך לחודש (₪)</th>
-          <th>ערך לשנה (₪)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>ילד עד גיל שנה</td><td>1</td><td>242</td><td>2,904</td></tr>
-        <tr><td>ילד בן 1–2</td><td>2</td><td>484</td><td>5,808</td></tr>
-        <tr><td>ילד בן 3–17</td><td>1</td><td>242</td><td>2,904</td></tr>
-        <tr><td>בן זוג/אישה</td><td>1</td><td>242</td><td>2,904</td></tr>
-        <tr><td>סטודנט/ית</td><td>1</td><td>242</td><td>2,904</td></tr>
-        <tr><td>נכה (100%)</td><td>2</td><td>484</td><td>5,808</td></tr>
-        <tr><td>הורים לילדים עם נכות</td><td>2</td><td>484</td><td>5,808</td></tr>
-        <tr><td>חייל/ת משוחרר/ת</td><td>2</td><td>484</td><td>5,808</td></tr>
-      </tbody>
-    </table>
+  <table>
+    <thead>
+      <tr>
+        <th>קריטריון</th>
+        <th>נקודות (קבוע/טיפוסי)</th>
+        <th>שווי חודשי (₪)</th>
+        <th>שווי שנתי (₪)</th>
+        <th>הערות קצרות</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>זכאות בסיסית (תושב ישראל)</td>
+        <td>2.25</td>
+        <td>544.50</td>
+        <td>6,534</td>
+        <td>נקודות הבסיס שניתנות לכל תושב/ת.</td>
+      </tr>
+      <tr>
+        <td>תוספת לנשים</td>
+        <td>+0.5</td>
+        <td>121.00</td>
+        <td>1,452</td>
+        <td>תוספת מגדרית סטנדרטית לנשים תושבות. בדקו תלוש/טופס 101.</td>
+      </tr>
+      <tr>
+        <td>בן/בת זוג ללא הכנסה (תלוי/ה) — תמיכה כלכלית</td>
+        <td>1</td>
+        <td>242.00</td>
+        <td>2,904</td>
+        <td>בתנאי שהבן/בת זוג פרישה/נכה/עיוור או עומד בתנאים מיוחדים.</td>
+      </tr>
+      <tr>
+        <td>הורה יחיד (אלמן/גרוש/אדם המגדל לבד)</td>
+        <td>1</td>
+        <td>242.00</td>
+        <td>2,904</td>
+        <td>הטבה להורה אחד המגדל ילדים (לתנאי הזכאות ראו רשות המסים).</td>
+      </tr>
+      <tr>
+        <td>חייל/ת משוחרר/ת (תלוי במשך השירות)</td>
+        <td>1 – 2</td>
+        <td>242.00 – 484.00</td>
+        <td>2,904 – 5,808</td>
+        <td>זכאות לפי משך שירות (לדוגמה: שירות ≥23 חודשים → 2 נקודות; שירות קצר יותר → 1 נקודה). תקופת הזכאות מוגבלת בזמן.</td>
+      </tr>
+      <tr>
+        <td>הורה לילד/בוגר עם מוגבלות</td>
+        <td>2</td>
+        <td>484.00</td>
+        <td>5,808</td>
+        <td>נדרש אישור רפואי/טפסים מתאימים; רק הורה אחד בדרך כלל מקבל זאת (יש יוצאים מן הכלל).</td>
+      </tr>
+      <tr>
+        <td>נכה/עיוור (פטור/הטבות מיוחדות)</td>
+        <td>הטבות נקודתיות / פטור</td>
+        <td>—</td>
+        <td>—</td>
+        <td>נכויות קשות עשויות לזכות בפטור ממס או בנקודות; ההטבות תלויות באחוז הנכות ובתנאים חוקיים — יש לבדוק מקרים אישיים.</td>
+      </tr>
+      <tr>
+        <td>תואר אקדמי / לימודי מקצוע (סטודנט/ית)</td>
+        <td>תואר ראשון: 1 (עד 3 שנים)<br>תואר שני: 0.5 (עד 2 שנים)<br>תעודת מקצוע/לימודי מקצוע: 1 (בתנאים)</td>
+        <td>242 / 121 / 242</td>
+        <td>2,904 / 1,452 / 2,904</td>
+        <td>הטבות על פי סוג התואר/תעודה ותנאי סיום; יש להגיש טפסים (טופס 119 וכו').</td>
+      </tr>
+      <tr>
+        <td>עולה חדש (זכויות זמניות)</td>
+        <td>מדרג לפי תקופה (למשל: 1 נק' בתחילת הדרך; תקופות נוספות לפי חוק)</td>
+        <td>242 (לאחר מכן גבוה יותר לפי השלבים)</td>
+        <td>2,904 (ולפי השלבים)</td>
+        <td>זכאות משתנה לפי מועד העלייה; קיימת סדרת נקודות לזמן מוגבל (ראו שילוב פרטים ברשויות).</td>
+      </tr>
+    </tbody>
+  </table>
+    <h3>דוגמה: חישוב נקודות </h3>
+    <p >
+    מצב: אישה שעובדת + שני ילדים — ילדה בת שנה וילד בן 3.
+    </p>
+    <ul>
+      <li>נקודות בסיס (תושב ישראל): <strong>2.25</strong></li>
+      <li>תוספת לנשים: <strong>0.5+</strong> ← סה״כ בסיס לאישה: <strong>2.75</strong></li>
+      <li>נקודות עבור הילדה (בן 1): <strong>4.5</strong></li>
+      <li>נקודות עבור הילד (בן 3): <strong>3.5</strong></li>
+    </ul>
+    <p>
+    <strong>סך הנקודות:</strong> 2.75 + 4.5 + 3.5 = <strong>10.75 נקודות</strong>
+    </p>
+    <p>
+    <strong>מה זה שווה (2025)?</strong><br>
+    שווי נקודה = <strong>242 ₪ לחודש</strong> (2,904 ₪ לשנה).<br>
+    לכן: <strong>10.75 × 242 = 2,601.50 ₪ לחודש</strong><br>
+    ולשנה: <strong>10.75 × 2,904 = 31,218 ₪ לשנה</strong>
+    </p>
+    <p>
+    צריכים לחשב בדיוק מה מגיע לכם? חזרו למחשבון והזינו גילאים ומצב משפחתי: 
+    <a href="#employeeForm">חשב עכשיו</a> · עיינו בהסבר על <a href="#tax-credits">נקודות זיכוי</a> · וטבלת הילדים ב־<a href="#credits-2025">נקודות זיכוי ילדים</a>.
+    </p>
   </div>
 </section>
 <!-- ============================
      נקודות זיכוי עבור ילדים 2025
 ============================ -->
-<div id="credits-2025" class="table-wrapper" style="display: none; margin-top: 20px;">
-  <h3>נקודות זיכוי ילדים – שנת 2025</h3>
+<section id="credits-2025" class="table-wrapper" style="display: none; margin-top: 20px;">
+  <h2>נקודות זיכוי ילדים –  2025</h2>
     <p>
     הטבלה הבאה מציגה את מספר נקודות הזיכוי שמקבל כל ילד בהתאם לגילו, והנתונים מעודכנים לשנת 2025. 
     נקודות הזיכוי מפחיתות את מס ההכנסה שלך, כך שכל נקודה מקטינה את הסכום שאתה צריך לשלם.
@@ -347,7 +449,7 @@
       <tr><td>גיל 18</td><td>0.5</td><td>0</td></tr>
     </tbody>
   </table>
-</div>
+</section>
 
 
 <footer>
@@ -383,8 +485,6 @@
 
   <!-- jsPDF -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
-  <!-- jsPDF AutoTable אם רוצים טבלאות -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js" defer></script>
   <!-- הפונטים -->
   <script src="Fonts/Fonts.js" defer></script>
   <!-- הסקריפט שלנו -->
